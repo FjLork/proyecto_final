@@ -1,0 +1,71 @@
+<mvc:View   controllerName="lorkgroup.moduloempleado.controller.Main"
+            xmlns:mvc="sap.ui.core.mvc"
+            xmlns="sap.m">
+    <App id="app">
+        <Shell id="shell">
+            <Page   id="page" 
+                    title="Menú Principal">
+                <content>
+                    <!-- Panel para Empleados -->
+                    <Panel  id="employeePanel" 
+                            headerText="Empleados" 
+                            expandable="true" 
+                            expanded="true">
+                        <content>
+                            <FlexBox    justifyContent="Start" 
+                                        wrap="Wrap" 
+                                        class="sapUiSmallMargin">
+
+                                <!-- Tile para Crear Empleado -->
+                                <GenericTile    header="Crear empleado" 
+                                                frameType="OneByOne" 
+                                                press="onNavigateToCrearEmpleado"
+                                                class="sapUiTinyMargin" 
+                                                backgroundColor="Neutral">
+                                    <TileContent>
+                                        <ImageContent src="sap-icon://add-employee"/>
+                                    </TileContent>
+                                </GenericTile>
+
+                                <!-- Tile para Ver Empleados -->
+                                <GenericTile    header="Ver empleados" 
+                                                frameType="OneByOne" 
+                                                press="onNavigateToVerEmpleados"
+                                                class="sapUiTinyMargin" 
+                                                backgroundColor="Neutral">
+                                    <TileContent>
+                                        <ImageContent src="sap-icon://employee-lookup"/>
+                                    </TileContent>
+                                </GenericTile>
+                            </FlexBox>
+                        </content>
+                    </Panel>
+
+                    <!-- Panel para Pedidos -->
+                    <Panel  id="orderPanel" 
+                            headerText="Pedidos" 
+                            expandable="true" 
+                            expanded="true">
+                        <content>
+                            <FlexBox    justifyContent="Start" 
+                                        wrap="Wrap" 
+                                        
+                                        class="sapUiSmallMargin">
+                                <!-- Tile para Firmar Pedido -->
+                                <GenericTile    header="Firmar pedido" 
+                                                frameType="OneByOne" 
+                                                press="onNavigateToFirmarPedido" 
+                                                class="sapUiTinyMargin" 
+                                                backgroundColor="Neutral">
+                                    <TileContent>
+                                        <ImageContent src="sap-icon://signature"/>
+                                    </TileContent>
+                                </GenericTile>
+                            </FlexBox>
+                        </content>
+                    </Panel>
+                </content>
+            </Page>
+        </Shell>
+    </App>
+</mvc:View>

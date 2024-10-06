@@ -1,0 +1,14 @@
+<mvc:View
+    controllerName="lorkgroup.moduloempleado.controller.VerEmpleados.VerEmpleados"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page title="Ver Empleado">
+        <headerContent>
+            <!-- Botón para Volver al Menú Principal -->
+            <Button text="Menú Principal" icon="sap-icon://home" press=".onNavigateToMenuPrincipal" />
+        </headerContent>
+        <content>
+            <Text text="Vista para Ver Empleado."/>
+        </content>
+    </Page>
+    </mvc:View>

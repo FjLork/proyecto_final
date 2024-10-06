@@ -1,0 +1,14 @@
+<mvc:View
+    controllerName="lorkgroup.moduloempleado.controller.FirmarPedido.FirmarPedido"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page title="Firmar Pedido">
+        <headerContent>
+            <!-- Botón para Volver al Menú Principal -->
+            <Button text="Menú Principal" icon="sap-icon://home" press=".onNavigateToMenuPrincipal" />
+        </headerContent>
+        <content>
+            <Text text="Vista para Firmar Pedido."/>
+        </content>
+    </Page>
+</mvc:View>
