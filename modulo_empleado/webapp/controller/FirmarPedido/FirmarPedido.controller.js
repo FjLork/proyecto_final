@@ -9,8 +9,8 @@ sap.ui.define([
         },
 
         onNavigateToMenuPrincipal: function () {
-            // Llamar la función del componente para navegar al menú principal
-            this.getOwnerComponent().navigateToMenuPrincipal();
+            var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+            oRouter.navTo("RouteApp");
         }
     });
 });

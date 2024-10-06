@@ -1,0 +1,18 @@
+<core:FragmentDefinition	xmlns="sap.m"
+	                        xmlns:core="sap.ui.core">
+
+        <Text   text="1. Tipo de empleado" 
+                design="Bold" />
+        <Text text="Seleccione el tipo de empleado para rellenar sus datos." />
+
+        <!-- Contenedor para botones de selección de tipo de empleado -->
+        <HBox width="100%" justifyContent="Center" alignItems="Center" class="sapUiSmallMargin">
+            <!-- Botón Interno -->
+            <Button text="Interno" type="Default" press="onTipoEmpleadoSelect" />
+            <!-- Botón Autónomo -->
+            <Button text="Autónomo" type="Default" press="onTipoEmpleadoSelect" />
+            <!-- Botón Gerente -->
+            <Button text="Gerente" type="Default" press="onTipoEmpleadoSelect" />
+        </HBox>
+
+</core:FragmentDefinition>

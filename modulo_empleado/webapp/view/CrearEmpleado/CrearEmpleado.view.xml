@@ -1,14 +1,70 @@
 <mvc:View
-            controllerName="lorkgroup.moduloempleado.controller.CrearEmpleado.CrearEmpleado"
-            xmlns:mvc="sap.ui.core.mvc"
-            xmlns="sap.m">
+    controllerName="lorkgroup.moduloempleado.controller.CrearEmpleado.CrearEmpleado"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m">
+
+    <!-- Página principal que contiene el asistente -->
     <Page title="Crear Empleado">
+
+        <!-- Contenido del encabezado -->
         <headerContent>
-            <!-- Botón para Volver al Menú Principal -->
-            <Button text="Menú Principal" icon="sap-icon://home" press=".onNavigateToMenuPrincipal" />
+            <!-- Botón para volver al Menú Principal -->
+            <Button text="Menú Principal" 
+                    icon="sap-icon://home" 
+                    press=".onNavigateToMenuPrincipal" />
         </headerContent>
+
+        <!-- Contenido principal de la página -->
         <content>
-            <Text text="Esta es la vista para crear empleado."/>
+            <!-- Contenedor vertical principal -->
+            <VBox width="100%">
+                
+                <!-- Título principal de la pantalla -->
+                <Title text="Crear empleado" level="H1" />
+
+                <!-- Asistente para creación de empleado -->
+                <Wizard id="CrearEmpleadoWizard" width="100%" showNextButton="true">
+
+                    <!-- Paso 1: Tipo de empleado -->
+                    <WizardStep title="Tipo de empleado" icon="sap-icon://employee">
+                        <VBox>
+
+                            <!-- Fragmento para el paso 1 -->
+                            <core:Fragment  
+                                fragmentName="lorkgroup.moduloempleado.view.CrearEmpleado.fragment.PasoUno"
+                                type="XML"/>
+
+                        </VBox>
+                    </WizardStep>
+
+                    <!-- Paso 2: Datos empleado -->
+                    <WizardStep title="Datos empleado" icon="sap-icon://user-edit">
+                        <VBox>
+                            <Text text="Complete los datos del empleado." />
+
+                            <!-- Fragmento para el paso 2 -->
+                            <core:Fragment  
+                                fragmentName="lorkgroup.moduloempleado.view.CrearEmpleado.fragment.PasoDos"
+                                type="XML"/>
+
+                        </VBox>
+                    </WizardStep>
+
+                    <!-- Paso 3: Información adicional -->
+                    <WizardStep title="Información adicional" icon="sap-icon://hint">
+                        <VBox>
+                            <!-- Fragmento para el paso 3 -->
+                            <core:Fragment  
+                                fragmentName="lorkgroup.moduloempleado.view.CrearEmpleado.fragment.PasoTres"
+                                type="XML"/>
+                        </VBox>
+                    </WizardStep>
+
+                </Wizard>
+                
+            </VBox>
         </content>
+
     </Page>
 </mvc:View>

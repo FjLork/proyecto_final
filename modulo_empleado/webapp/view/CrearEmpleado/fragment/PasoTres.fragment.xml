@@ -1,0 +1,4 @@
+<core:FragmentDefinition 	xmlns="sap.m"
+	                        xmlns:core ="sap.ui.core">
+        <Text text="Agregue cualquier información adicional." />
+</core:FragmentDefinition>  
