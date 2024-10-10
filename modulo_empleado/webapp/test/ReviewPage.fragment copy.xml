@@ -1,0 +1,52 @@
+<core:FragmentDefinition	xmlns="sap.m"
+	                        xmlns:core="sap.ui.core"
+                                xmlns:form="sap.ui.layout.form">
+        <content>
+            <VBox>
+                <form:SimpleForm title="1. Tipo de empleado"
+                                editable="false"
+                                layout="ResponsiveGridLayout">
+                    <form:content>
+                        <Label text="Tipo"/>
+                        <Text id="ProductTypeChosen" text="{/productType}"/>
+                        <Link press=".editStepOne" text="Editar" />
+                    </form:content>
+                </form:SimpleForm>
+
+                <form:SimpleForm title="2. Información del empleado"
+                                editable="false"
+                                layout="ResponsiveGridLayout">
+                    <form:content>
+                        <Label text="Nombre"/>
+                        <Text id="EmployeeNameChosen" text="{/employeeName}"/>
+                        <Label text="Apellido"/>
+                        <Text id="EmployeeSurnameChosen" text="{/employeeSurname}"/>
+                        <Label text="Posición"/>
+                        <Text id="EmployeePositionChosen" text="{/employeePosition}"/>
+                        <Link press=".editStepTwo" text="Editar" />
+                    </form:content>
+                </form:SimpleForm>
+
+                <form:SimpleForm title="3. Información adicional"
+                                editable="false"
+                                layout="ResponsiveGridLayout">
+                    <form:content>
+                        <Label text="Comentarios"/>
+                        <Text text="{/additionalInfo}"/>
+                        <Label text="Fecha de Inicio"/>
+                        <Text id="StartDateChosen" text="{/startDate}"/>
+                        <Link press=".editStepThree" text="Editar" />
+                    </form:content>
+                </form:SimpleForm>
+            </VBox>
+        </content>
+        <footer>
+            <Bar>
+                <contentRight>
+                    <Button text="Guardar" press=".handleSave"/>
+                    <Button text="Cancelar" press=".handleCancel"/>
+                </contentRight>
+            </Bar>
+        </footer>
+
+</core:FragmentDefinition>

@@ -100,6 +100,11 @@
           "target": "TargetCrearEmpleado"
         },
         {
+          "name": "RouteCrearEmpleado2",
+          "pattern": "crearEmpleado2",
+          "target": "TargetCrearEmpleado2"
+        },
+        {
           "name": "RouteVerEmpleados",
           "pattern": "verEmpleados",
           "target": "TargetVerEmpleados"
@@ -124,6 +129,13 @@
           "viewType": "XML",
           "viewId": "CrearEmpleado",
           "viewName": "CrearEmpleado.CrearEmpleado",
+          "controlAggregation": "pages",
+          "controlId": "app"
+        },
+        "TargetCrearEmpleado2": {
+          "viewType": "XML",
+          "viewId": "CrearEmpleado2",
+          "viewName": "CrearEmpleado2.CrearEmpleado",
           "controlAggregation": "pages",
           "controlId": "app"
         },

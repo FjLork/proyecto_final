@@ -1,4 +1,87 @@
-<core:FragmentDefinition 	xmlns="sap.m"
-	                        xmlns:core ="sap.ui.core">
-            <Text text="Complete los datos del empleado." />
-</core:FragmentDefinition>  
+<core:FragmentDefinition xmlns="sap.m"
+                         xmlns:form="sap.ui.layout.form"
+                         xmlns:layout="sap.ui.layout"
+                         xmlns:core="sap.ui.core">
+
+    <!-- Mensaje informativo inicial -->
+    <VBox class="sapUiSmallMargin">
+        <Text text="Complete los datos del empleado." />
+        <MessageStrip class="sapUiSmallMarginBottom"
+                      text="Validation in the wizard"
+                      showIcon="true" />
+    </VBox>
+
+    <!-- Mensaje adicional de validación -->
+    <MessageStrip class="sapUiSmallMarginBottom"
+                  text="Validation in the wizard is controlled by calling the validateStep(Step) and invalidateStep(Step) methods"
+                  showIcon="true" />
+
+    <!-- Texto informativo adicional -->
+    <Text text="Cras tellus leo, volutpat vitae ullamcorper eu, posuere malesuada nisl..." />
+
+    <!-- Primer formulario para datos adicionales -->
+    <form:SimpleForm editable="true" layout="ResponsiveGridLayout">
+        <Label text="Name" required="true" />
+        <Input valueState="{/productNameState}"
+               liveChange="additionalInfoValidation"
+               placeholder="Enter name with length greater than 6"
+               value="{/productName}" />
+
+        <Label text="Weight" required="true" />
+        <Input valueState="{/productWeightState}"
+               id="ProductWeight"
+               liveChange="additionalInfoValidation"
+               type="Number"
+               placeholder="Enter digits"
+               value="{/productWeight}" />
+    </form:SimpleForm>
+
+    <!-- Sección de Datos del Empleado -->
+    <!-- Título de la sección -->
+    <Title text="2. Datos empleado" level="H2" />
+
+    <!-- Mensaje informativo -->
+    <MessageStrip text="Complete los datos obligatorios para poder continuar"
+                  type="Information"
+                  showIcon="true"
+                  class="sapUiSmallMarginBottom" />
+
+    <!-- Segundo formulario para ingresar los datos del empleado -->
+    <form:SimpleForm layout="ResponsiveGridLayout"
+                     editable="true"
+                     class="sapUiResponsivePadding--content">
+
+        <!-- Campo de Nombre -->
+        <Label text="Nombre:" required="true" />
+        <Input  placeholder="Ingrese nombre" 
+                required="true" 
+                id="ProductName"/>
+
+        <!-- Campo de Apellidos -->
+        <Label text="Apellidos:" required="true" />
+        <Input placeholder="Ingrese apellidos" required="true" />
+
+        <!-- Campo de CIF -->
+        <Label text="CIF:" required="true" />
+        <Input placeholder="Ingrese CIF" required="true" />
+
+        <!-- Campo de Precio Diario con Slider -->
+        <Label text="{/priceLabel}" />
+        <layout:VerticalLayout class="sapUiContentPadding" width="100%">
+            <Slider min="{/sliderMin}"
+                    max="{/sliderMax}"
+                    value="{/sliderValue}"
+                    enableTickmarks="true"
+                    class="sapUiSmallMarginBottom"
+                    width="100%">
+                <ResponsiveScale tickmarksBetweenLabels="100" />
+            </Slider>
+        </layout:VerticalLayout>
+
+        <!-- Campo de Fecha de Incorporación -->
+        <Label text="Fecha Incorporación:" required="true" />
+        <DatePicker placeholder="d MMM y" />
+
+    </form:SimpleForm>
+
+</core:FragmentDefinition>

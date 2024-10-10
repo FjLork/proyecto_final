@@ -1,0 +1,54 @@
+<core:FragmentDefinition    xmlns="sap.m"
+                            xmlns:core="sap.ui.core"
+                            xmlns:form="sap.ui.layout.form">
+    <!-- Contenedor Vertical -->
+						<form:SimpleForm
+								title="1. Product Type"
+								editable="false"
+								layout="ResponsiveGridLayout">
+							<form:content>
+								<Label text="Type"/>
+								<Text id="ProductTypeChosen" text="{/productType}"/>
+								<Link press="editStepOne" text="Edit" />
+							</form:content>
+						</form:SimpleForm>
+
+						<form:SimpleForm
+								title="2. Product Information"
+								editable="false"
+								layout="ResponsiveGridLayout">
+							<form:content>
+								<Label text="Name"/>
+								<Text id="ProductNameChosen" text="{/productName}"/>
+								<Label text="Weight"/>
+								<Text id="ProductWeightChosen" text="{/productWeight}"/>
+								<Label text="Manufacturer"/>
+								<Text id="ProductManufacturerChosen" text="{/productManufacturer}"/>
+								<Label text="Description"/>
+								<Text id="ProductDescriptionChosen" text="{/productDescription}"/>
+								<Link press="editStepTwo" text="Edit" />
+							</form:content>
+						</form:SimpleForm>
+
+						<form:SimpleForm
+								title="3. Optional Information"
+								editable="false"
+								layout="ResponsiveGridLayout">
+							<form:content>
+								<Label text="Some text"/>
+								<Text text="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+								tempor incididunt ut labore et dolore magna aliqua. "/>
+								<Label text="Manufacturing Date"/>
+								<Text id="ManufacturingDate" text="{/manufacturingDate}"/>
+								<Label text="Availability"/>
+								<Text id="AvailabilityChosen" text="{/availabilityType}"/>
+								<Label text="Size"/>
+								<HBox>
+									<Text id="Size" text="{/size}"/>
+									<Text id="Size2" class="sapUiTinyMarginBegin" text="{/measurement}"/>
+								</HBox>
+								<Link press="editStepThree" text="Edit" />
+							</form:content>
+						</form:SimpleForm>
+
+</core:FragmentDefinition>

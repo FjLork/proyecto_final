@@ -1,70 +1,173 @@
 <mvc:View
+    height="100%"
     controllerName="lorkgroup.moduloempleado.controller.CrearEmpleado.CrearEmpleado"
-    xmlns:mvc="sap.ui.core.mvc"
     xmlns:core="sap.ui.core"
-    xmlns="sap.m">
-
-    <!-- Página principal que contiene el asistente -->
-    <Page title="Crear Empleado">
-
-        <!-- Contenido del encabezado -->
-        <headerContent>
-            <!-- Botón para volver al Menú Principal -->
-            <Button text="Menú Principal" 
-                    icon="sap-icon://home" 
-                    press=".onNavigateToMenuPrincipal" />
-        </headerContent>
-
-        <!-- Contenido principal de la página -->
-        <content>
-            <!-- Contenedor vertical principal -->
-            <VBox width="100%">
-                
-                <!-- Título principal de la pantalla -->
-                <Title text="Crear empleado" level="H1" />
-
-                <!-- Asistente para creación de empleado -->
-                <Wizard id="CrearEmpleadoWizard" width="100%" showNextButton="true">
-
-                    <!-- Paso 1: Tipo de empleado -->
-                    <WizardStep title="Tipo de empleado" icon="sap-icon://employee">
-                        <VBox>
-
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:u="sap.ui.unified"
+    xmlns="sap.m"
+>
+    <NavContainer id="wizardNavContainer">
+        <pages>
+            <Page
+                id="wizardContentPage"
+                showHeader="false"
+            >
+                <content>
+                    <Wizard
+                        id="CreateProductWizard"
+                        class="sapUiResponsivePadding--header sapUiResponsivePadding--content"
+                        complete="wizardCompletedHandler"
+                    >
+                        <!-- Paso 1: Tipo de producto -->
+                        <WizardStep id="ProductTypeStep" title="Product Type" validated="true">
                             <!-- Fragmento para el paso 1 -->
-                            <core:Fragment  
-                                fragmentName="lorkgroup.moduloempleado.view.CrearEmpleado.fragment.PasoUno"
-                                type="XML"/>
-
-                        </VBox>
-                    </WizardStep>
-
-                    <!-- Paso 2: Datos empleado -->
-                    <WizardStep title="Datos empleado" icon="sap-icon://user-edit">
-                        <VBox>
-                            <Text text="Complete los datos del empleado." />
+                            <core:Fragment fragmentName="lorkgroup.moduloempleado.view.CrearEmpleado.fragment.PasoUno" 
+                                           type="XML" />
+                        </WizardStep>
+                        <WizardStep
+                            id="ProductInfoStep"
+                            validated="false"
+                            title="Product Information"
+                            activate="additionalInfoValidation"
+                        >
 
                             <!-- Fragmento para el paso 2 -->
-                            <core:Fragment  
-                                fragmentName="lorkgroup.moduloempleado.view.CrearEmpleado.fragment.PasoDos"
-                                type="XML"/>
+                            <core:Fragment fragmentName="lorkgroup.moduloempleado.view.CrearEmpleado.fragment.PasoDos" 
+                                           type="XML" />
+                       
+                        </WizardStep>
+                        <WizardStep
+                            id="OptionalInfoStep"
+                            validated="true"
+                            activate="optionalStepActivation"
+                            title="Optional Information"
+                        >
 
-                        </VBox>
-                    </WizardStep>
-
-                    <!-- Paso 3: Información adicional -->
-                    <WizardStep title="Información adicional" icon="sap-icon://hint">
-                        <VBox>
                             <!-- Fragmento para el paso 3 -->
-                            <core:Fragment  
-                                fragmentName="lorkgroup.moduloempleado.view.CrearEmpleado.fragment.PasoTres"
-                                type="XML"/>
-                        </VBox>
-                    </WizardStep>
+                            <core:Fragment fragmentName="lorkgroup.moduloempleado.view.CrearEmpleado.fragment.PasoTres" 
+                                           type="XML" />
 
-                </Wizard>
-                
-            </VBox>
-        </content>
+                        </WizardStep>
+                    </Wizard>
+                </content>
+                <footer>
+                    <OverflowToolbar>
+                        <ToolbarSpacer />
+                        <Button
+                            text="Cancel"
+                            press="handleWizardCancel"
+                        />
+                    </OverflowToolbar>
+                </footer>
+            </Page>
+            <Page
+                id="wizardReviewPage"
+                showHeader="false"
+            >
+                <content>
+                    <form:SimpleForm
+                        title="1. Product Type"
+                        editable="false"
+                        layout="ResponsiveGridLayout"
+                    >
+                        <form:content>
+                            <Label text="Type" />
+                            <Text
+                                id="ProductTypeChosen"
+                                text="{/productType}"
+                            />
+                            <Link
+                                press="editStepOne"
+                                text="Edit"
+                            />
+                        </form:content>
+                    </form:SimpleForm>
+                    <form:SimpleForm
+                        title="2. Product Information"
+                        editable="false"
+                        layout="ResponsiveGridLayout"
+                    >
+                        <form:content>
+                            <Label text="Name" />
+                            <Text
+                                id="ProductNameChosen"
+                                text="{/productName}"
+                            />
+                            <Label text="Weight" />
+                            <Text
+                                id="ProductWeightChosen"
+                                text="{/productWeight}"
+                            />
+                            <Label text="Manufacturer" />
+                            <Text
+                                id="ProductManufacturerChosen"
+                                text="{/productManufacturer}"
+                            />
+                            <Label text="Description" />
+                            <Text
+                                id="ProductDescriptionChosen"
+                                text="{/productDescription}"
+                            />
+                            <Link
+                                press="editStepTwo"
+                                text="Edit"
+                            />
+                        </form:content>
+                    </form:SimpleForm>
+                    <form:SimpleForm
+                        title="3. Optional Information"
+                        editable="false"
+                        layout="ResponsiveGridLayout"
+                    >
+                        <form:content>
+                            <Label text="Some text" />
+                            <Text text="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. " />
+                            <Label text="Manufacturing Date" />
+                            <Text
+                                id="ManufacturingDate"
+                                text="{/manufacturingDate}"
+                            />
+                            <Label text="Availability" />
+                            <Text
+                                id="AvailabilityChosen"
+                                text="{/availabilityType}"
+                            />
+                            <Label text="Size" />
+                            <HBox>
+                                <Text
+                                    id="Size"
+                                    text="{/size}"
+                                />
+                                <Text
+                                    id="Size2"
+                                    class="sapUiTinyMarginBegin"
+                                    text="{/measurement}"
+                                />
+                            </HBox>
+                            <Link
+                                press="editStepThree"
+                                text="Edit"
+                            />
+                        </form:content>
+                    </form:SimpleForm>
 
-    </Page>
+                </content>
+                <footer>
+                    <Bar>
+                        <contentRight>
+                            <Button
+                                text="Submit"
+                                press="handleWizardSubmit"
+                            />
+                            <Button
+                                text="Cancel"
+                                press="handleWizardCancel"
+                            />
+                        </contentRight>
+                    </Bar>
+                </footer>
+            </Page>
+        </pages>
+    </NavContainer>
 </mvc:View>

@@ -27,6 +27,17 @@
                                     </TileContent>
                                 </GenericTile>
 
+                                <!-- Tile para Crear Empleado 2 -->
+                                <GenericTile    header="Crear empleado 2" 
+                                                frameType="OneByOne" 
+                                                press="onNavigateToCrearEmpleado2"
+                                                class="sapUiTinyMargin" 
+                                                backgroundColor="Neutral">
+                                    <TileContent>
+                                        <ImageContent src="sap-icon://add-employee"/>
+                                    </TileContent>
+                                </GenericTile>
+
                                 <!-- Tile para Ver Empleados -->
                                 <GenericTile    header="Ver empleados" 
                                                 frameType="OneByOne" 

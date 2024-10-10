@@ -12,6 +12,10 @@ function (Controller) {
             var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
             oRouter.navTo("RouteCrearEmpleado");
         },
+        onNavigateToCrearEmpleado2: function () {
+            var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+            oRouter.navTo("RouteCrearEmpleado2");
+        },
         
         onNavigateToVerEmpleados: function () {
             var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
