@@ -6,12 +6,17 @@ sap.ui.define([
 ], function (Controller, JSONModel, MessageToast, MessageBox) {
     "use strict";
 
-    return Controller.extend("lorkgroup.moduloempleado.controller.CrearEmpleado2.CrearEmpleado", {
+    return Controller.extend("lorkgroup.moduloempleado.controller.CrearEmpleado2.CrearEmpleado2", {
         
                 onInit: function () {
                     // Inicializa un modelo JSON vacío para la vista
                     var oModel = new JSONModel();
                     this.getView().setModel(oModel, "userData");
+                },
+
+                onNavigateToMenuPrincipal: function () {
+                    var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+                    oRouter.navTo("RouteApp");
                 },
         
                 onSave: function () {
@@ -20,7 +25,8 @@ sap.ui.define([
         
                     // 1. Crear el nuevo usuario
                     var oNewUser = {
-                        UserID: this.getView().byId("userId").getValue(),
+                        // UserID: this.getView().byId("userId").getValue(),
+                        UserID: parseInt(this.getView().byId("userId").getValue(), 10),  // Convierte a número entero
                         FirstName: this.getView().byId("userName").getValue(),
                         LastName: this.getView().byId("userLastName").getValue(),
                         Email: this.getView().byId("userEmail").getValue(),

@@ -1,14 +1,45 @@
 <mvc:View
     controllerName="lorkgroup.moduloempleado.controller.VerEmpleados.VerEmpleados"
     xmlns:mvc="sap.ui.core.mvc"
-    xmlns="sap.m">
-    <Page title="Ver Empleado">
-        <headerContent>
-            <!-- Botón para Volver al Menú Principal -->
-            <Button text="Menú Principal" icon="sap-icon://home" press=".onNavigateToMenuPrincipal" />
-        </headerContent>
-        <content>
-            <Text text="Vista para Ver Empleado."/>
-        </content>
-    </Page>
-    </mvc:View>
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    
+    <SplitApp id="SplitApp">
+        <!-- Lista de empleados (Columna izquierda) -->
+        <masterPages>
+            <Page id="employeeListPage" title="Buscar">
+                <SearchField id="searchField" placeholder="Buscar" search="onSearch"/>
+                <List id="employeeList" items="{/employees}">
+                    <StandardListItem title="{name}" description="{id}" type="Active" press="onEmployeeSelect"/>
+                </List>
+            </Page>
+        </masterPages>
+
+        <!-- Detalle del empleado (Columna derecha) -->
+        <detailPages>
+            <Page id="employeeDetailPage" title="Ver Empleado">
+                <headerContent>
+                    <!-- Botón para Volver al Menú Principal -->
+                    <Button text="Menú Principal" icon="sap-icon://home" press=".onNavigateToMenuPrincipal" />
+                </headerContent>
+
+                <content>
+                    <!-- Mensaje de texto sobre la vista -->
+                    <Text text="Vista para Ver Empleado."/>
+                    
+                    <!-- Fragmento para Lista de Empleados -->
+                    <core:Fragment fragmentName="lorkgroup.moduloempleado.view.VerEmpleados.fragment.ListaEmpleados" type="XML" />
+                </content>
+
+                <footer>
+                    <Toolbar>
+                        <ToolbarSpacer/>
+                        <Button text="Dar de baja" type="Reject" press="onDismissPress"/>
+                        <Button text="Ascender" type="Accept" press="onPromotePress"/>
+                    </Toolbar>
+                </footer>
+            </Page>
+        </detailPages>
+    </SplitApp>
+
+</mvc:View>

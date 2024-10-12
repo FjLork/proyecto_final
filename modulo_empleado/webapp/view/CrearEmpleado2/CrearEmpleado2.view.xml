@@ -1,12 +1,18 @@
 <mvc:View
     height="100%"
-    controllerName="lorkgroup.moduloempleado.controller.CrearEmpleado2.CrearEmpleado" 
+    controllerName="lorkgroup.moduloempleado.controller.CrearEmpleado2.CrearEmpleado2" 
     xmlns:core="sap.ui.core"
     xmlns:mvc="sap.ui.core.mvc"
+    xmlns:u="sap.ui.unified"
     xmlns="sap.m">
 
     <Page title="Crear Usuario con Salario y Adjuntos">
+                <headerContent>
+                    <!-- Botón para Volver al Menú Principal -->
+                    <Button text="Menú Principal" icon="sap-icon://home" press=".onNavigateToMenuPrincipal" />
+                </headerContent>
         <content>
+       
             <VBox class="sapUiSmallMargin">
 
                 <!-- Sección de Datos del Usuario -->
@@ -40,7 +46,7 @@
                 <Title text="Adjuntar Documentos" level="H2" class="sapUiSmallMarginTop" />
                 
                 <Label text="Documento Adjunto:" />
-                <FileUploader id="fileUploader" placeholder="Seleccione un archivo para adjuntar" width="100%" />
+                <u:FileUploader id="fleUploader" placeholder="Seleccione un archivo para adjuntar" width="100%" />
 
                 <!-- Botón para guardar los datos ingresados -->
                 <Button text="Guardar" press="onSave" type="Emphasized" class="sapUiSmallMarginTop" />

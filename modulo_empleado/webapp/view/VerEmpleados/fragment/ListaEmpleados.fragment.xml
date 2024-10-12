@@ -1,0 +1,63 @@
+<core:FragmentDefinition xmlns="sap.m"
+                         xmlns:form="sap.ui.layout.form"
+                         xmlns:layout="sap.ui.layout"
+                         xmlns:core="sap.ui.core">
+
+        <Table
+        id="usersTable"
+        items="{ path: 'IncidentsSet' }">
+        
+        <headerToolbar>
+          <Toolbar>
+            <Title text="User List"/>
+          </Toolbar>
+        </headerToolbar>
+
+        <columns>
+          <Column>
+            <header>
+              <Label text="Employee ID" />
+            </header>
+          </Column>
+          <Column>
+            <header>
+              <Label text="SAP ID" />
+            </header>
+          </Column>
+          <Column>
+            <header>
+              <Label text="First Name" />
+            </header>
+          </Column>
+          <Column>
+            <header>
+              <Label text="Last Name" />
+            </header>
+          </Column>
+          <Column>
+            <header>
+              <Label text="DNI" />
+            </header>
+          </Column>
+          <Column>
+            <header>
+              <Label text="Creation Date" />
+            </header>
+          </Column>
+        </columns>
+
+        <items>
+          <ColumnListItem>
+            <cells>
+              <Text text="{IncidentsSet>EmployeeId}" />
+              <Text text="{IncidentsSet>SapId}" />
+              <Text text="{IncidentsSet>FirstName}" />
+              <Text text="{IncidentsSet>LastName}" />
+              <Text text="{IncidentsSet>Dni}" />
+              <Text text="{path: 'CreationDate', type: 'sap.ui.model.type.Date', formatOptions: { style: 'medium' }}" />
+            </cells>
+          </ColumnListItem>
+        </items>
+      </Table>
+
+</core:FragmentDefinition>

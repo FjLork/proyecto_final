@@ -41,6 +41,11 @@ sap.ui.define([
             this._setEmptyValue("/discountGroup");
         },
 
+        onNavigateToMenuPrincipal: function () {
+            var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+            oRouter.navTo("RouteApp");
+        },
+
         // Función que se ejecuta cuando se selecciona un tipo de producto
         setProductType: function (evt) {
             var productType = evt.getSource().getTitle(); // Obtiene el título del producto seleccionado

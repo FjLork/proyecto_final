@@ -23,6 +23,13 @@
           "annotations": [],
           "localUri": "localService/metadata.xml",
           "odataVersion": "2.0"
+        },
+        "erp13": {
+          "uri": "/sap/opu/odata/sap/ZEMPLOYEES_SRV/",
+          "type": "OData",
+          "settings": {
+            "odataVersion": "2.0"
+          }
         }
       }
     }
@@ -63,10 +70,17 @@
           "bundleName": "lorkgroup.moduloempleado.i18n.i18n"
         }
       },
-      "": {
+      "mainService": {
         "dataSource": "mainService",
         "preload": true,
         "settings": {}
+      },
+      "erp13": {
+        "dataSource": "erp13",
+        "settings": {
+          "useBatch": false,
+          "defaultUpdateMethod": "Put"
+        }
       }
     },
     "resources": {
@@ -135,7 +149,7 @@
         "TargetCrearEmpleado2": {
           "viewType": "XML",
           "viewId": "CrearEmpleado2",
-          "viewName": "CrearEmpleado2.CrearEmpleado",
+          "viewName": "CrearEmpleado2.CrearEmpleado2",
           "controlAggregation": "pages",
           "controlId": "app"
         },

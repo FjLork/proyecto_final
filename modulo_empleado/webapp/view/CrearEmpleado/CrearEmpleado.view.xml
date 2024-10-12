@@ -11,8 +11,11 @@
         <pages>
             <Page
                 id="wizardContentPage"
-                showHeader="false"
-            >
+                showHeader="true">
+                <headerContent>
+                    <!-- Botón para Volver al Menú Principal -->
+                    <Button text="Menú Principal" icon="sap-icon://home" press=".onNavigateToMenuPrincipal" />
+                </headerContent>
                 <content>
                     <Wizard
                         id="CreateProductWizard"
