@@ -1,0 +1,14 @@
+<core:FragmentDefinition xmlns="sap.m"
+                         xmlns:form="sap.ui.layout.form"
+                         xmlns:layout="sap.ui.layout"
+                         xmlns:core="sap.ui.core">
+
+        <!-- Mensaje inicial si no hay selección -->
+        <VBox justifyContent="Center" alignItems="Center" height="90%" visible="true">
+            <Text text="Seleccione un empleado" />
+            <Text text="Seleccion" />
+        </VBox>
+
+
+        
+</core:FragmentDefinition>

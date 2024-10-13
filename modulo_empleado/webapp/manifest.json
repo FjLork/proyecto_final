@@ -9,41 +9,23 @@
     },
     "title": "{{appTitle}}",
     "description": "{{appDescription}}",
-    "resources": "resources.json",
     "sourceTemplate": {
       "id": "@sap/generator-fiori:basic",
       "version": "1.15.1",
       "toolsId": "1f65d101-0f75-477a-aa0b-695916d1f072"
     },
     "dataSources": {
-      "mainService": {
+      "erp13": {
         "uri": "/sap/opu/odata/sap/ZEMPLOYEES_SRV/",
         "type": "OData",
         "settings": {
-          "annotations": [],
-          "localUri": "localService/metadata.xml",
           "odataVersion": "2.0"
-        },
-        "erp13": {
-          "uri": "/sap/opu/odata/sap/ZEMPLOYEES_SRV/",
-          "type": "OData",
-          "settings": {
-            "odataVersion": "2.0"
-          }
         }
       }
     }
   },
   "sap.ui": {
     "technology": "UI5",
-    "icons": {
-      "icon": "",
-      "favIcon": "",
-      "phone": "",
-      "phone@2": "",
-      "tablet": "",
-      "tablet@2": ""
-    },
     "deviceTypes": {
       "desktop": true,
       "tablet": true,
@@ -69,11 +51,6 @@
         "settings": {
           "bundleName": "lorkgroup.moduloempleado.i18n.i18n"
         }
-      },
-      "mainService": {
-        "dataSource": "mainService",
-        "preload": true,
-        "settings": {}
       },
       "erp13": {
         "dataSource": "erp13",
@@ -153,20 +130,20 @@
           "controlAggregation": "pages",
           "controlId": "app"
         },
-"TargetVerEmpleados": {
-    "viewType": "XML",
-    "viewId": "VerEmpleados",
-    "viewName": "VerEmpleados.VerEmpleados",
-    "controlAggregation": "pages",
-    "controlId": "app"
-},
-"TargetFirmarPedido": {
-    "viewType": "XML",
-    "viewId": "FirmarPedido",
-    "viewName": "FirmarPedido.FirmarPedido",
-    "controlAggregation": "pages",
-    "controlId": "app"
-}
+        "TargetVerEmpleados": {
+          "viewType": "XML",
+          "viewId": "VerEmpleados",
+          "viewName": "VerEmpleados.VerEmpleados",
+          "controlAggregation": "pages",
+          "controlId": "app"
+        },
+        "TargetFirmarPedido": {
+          "viewType": "XML",
+          "viewId": "FirmarPedido",
+          "viewName": "FirmarPedido.FirmarPedido",
+          "controlAggregation": "pages",
+          "controlId": "app"
+        }
       }
     },
     "rootView": {

@@ -1,0 +1,20 @@
+<core:FragmentDefinition xmlns="sap.m"
+                         xmlns:form="sap.ui.layout.form"
+                         xmlns:layout="sap.ui.layout"
+                         xmlns:core="sap.ui.core">
+
+        <VBox>
+         <Text text="Seleccion" />
+        <Text text="ID: {/EmployeeId}" />
+        <Text text="Nombre: {/FirstName}" />
+        <Text text="Apellido: {/LastName}" />
+        <Text text="DNI: {/Dni}" />
+        <Text text="Fecha de creación: {/CreationDate}" />
+        </VBox>
+
+                            <Toolbar>
+                                <ToolbarSpacer />
+                                <Button text="Regresar" press="onNavigateToDetail" />
+                            </Toolbar>
+
+</core:FragmentDefinition>

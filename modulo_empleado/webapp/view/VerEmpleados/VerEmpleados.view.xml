@@ -1,45 +1,80 @@
-<mvc:View
+<mvc:View 
     controllerName="lorkgroup.moduloempleado.controller.VerEmpleados.VerEmpleados"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m"
     xmlns:core="sap.ui.core">
-    
-    <SplitApp id="SplitApp">
-        <!-- Lista de empleados (Columna izquierda) -->
-        <masterPages>
-            <Page id="employeeListPage" title="Buscar">
-                <SearchField id="searchField" placeholder="Buscar" search="onSearch"/>
-                <List id="employeeList" items="{/employees}">
-                    <StandardListItem title="{name}" description="{id}" type="Active" press="onEmployeeSelect"/>
-                </List>
-            </Page>
-        </masterPages>
 
-        <!-- Detalle del empleado (Columna derecha) -->
-        <detailPages>
-            <Page id="employeeDetailPage" title="Ver Empleado">
-                <headerContent>
-                    <!-- Botón para Volver al Menú Principal -->
-                    <Button text="Menú Principal" icon="sap-icon://home" press=".onNavigateToMenuPrincipal" />
-                </headerContent>
+    <!-- Página principal con título y botón de navegación -->
+    <Page title="Crear Usuario con Salario y Adjuntos" enableScrolling="true">
+        <!-- Botón de cabecera para volver al menú principal -->
+        <headerContent>
+            <Button text="Menú Principal" icon="sap-icon://home" press="onNavigateToMenuPrincipal" />
+        </headerContent>
 
-                <content>
-                    <!-- Mensaje de texto sobre la vista -->
-                    <Text text="Vista para Ver Empleado."/>
-                    
-                    <!-- Fragmento para Lista de Empleados -->
-                    <core:Fragment fragmentName="lorkgroup.moduloempleado.view.VerEmpleados.fragment.ListaEmpleados" type="XML" />
-                </content>
+        <!-- Componente SplitApp para la estructura maestro-detalle -->
+        <SplitApp id="SplitApp">
 
-                <footer>
-                    <Toolbar>
-                        <ToolbarSpacer/>
-                        <Button text="Dar de baja" type="Reject" press="onDismissPress"/>
-                        <Button text="Ascender" type="Accept" press="onPromotePress"/>
-                    </Toolbar>
-                </footer>
-            </Page>
-        </detailPages>
-    </SplitApp>
+            <!-- Columna izquierda: Lista de empleados -->
+            <masterPages>
+                <Page id="employeeListPage" title="Buscar" enableScrolling="true">
+                    <content>
+                        <!-- Campo de búsqueda -->
+                        <SearchField 
+                            id="searchField" 
+                            placeholder="Buscar usuario" 
+                            search="onSearch" />
 
+                        <!-- Lista de usuarios -->
+                        <List
+                            id="userList"
+                            items="{
+                                path: 'erp13>/Users'
+                            }"
+                            mode="SingleSelectMaster"
+                            selectionChange="onUserSelect">
+                            <StandardListItem
+                                title="{erp13>FirstName} {erp13>LastName} - ({erp13>EmployeeId})"
+                                description="{erp13>Dni}"
+                                infoState="Success" />
+                        </List>
+                    </content>
+                </Page>
+            </masterPages>
+
+            <!-- Columna derecha: Detalle del empleado y navegación -->
+            <detailPages>
+                <!-- Contenedor de navegación -->
+                <NavContainer id="detailNavContainer">
+                    <!-- Página de Detalle 1 (Información del empleado) -->
+                    <Page id="employeeDetailPage" title="Detalle del Empleado">
+                        <content>
+                            <!-- Fragmento para mostrar detalles del empleado -->
+                            <core:Fragment fragmentName="lorkgroup.moduloempleado.view.VerEmpleados.fragment.ListaEmpleados0" type="XML" />
+                        </content>
+                        <footer view="true">
+                            <Toolbar>
+                                <ToolbarSpacer />
+                                <Button text="Ver Historial" press="onNavigateToHistory" />
+                            </Toolbar>
+                        </footer>
+                    </Page>
+
+                    <!-- Página de Detalle 2 (Historial del empleado) -->
+                    <Page id="employeeHistoryPage" title="Historial del Empleado">
+                        <content>
+                            <!-- Fragmento para mostrar el historial del empleado -->
+                            <core:Fragment fragmentName="lorkgroup.moduloempleado.view.VerEmpleados.fragment.ListaEmpleados1" type="XML" />
+                        </content>
+                        <footer view="true">
+                            <Toolbar>
+                                <ToolbarSpacer />
+                                <Button text="Regresar" press="onNavigateToDetail" />
+                            </Toolbar>
+                        </footer>
+                    </Page>
+                </NavContainer>
+            </detailPages>
+
+        </SplitApp>
+    </Page>
 </mvc:View>
