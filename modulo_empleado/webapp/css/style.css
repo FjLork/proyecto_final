@@ -1,1 +1,11 @@
-/* Enter your custom styles here */
+
+.customTextLargeBold {
+    font-size: 1.5rem; /* Ajusta el tamaño según tus necesidades */
+    font-weight: bold; /* Asegura que sea negrita */
+}
+
+.customPanel {
+    background-color: #e0f7fa; /* Color de fondo azul clarito */
+    padding: 10px; /* Espaciado interno opcional */
+    border-radius: 5px; /* Bordes redondeados opcional */
+}

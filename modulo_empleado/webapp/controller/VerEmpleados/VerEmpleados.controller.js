@@ -45,11 +45,9 @@ sap.ui.define([
 
         // Función para manejar la selección de un usuario
         onUserSelect: function (oEvent) {
-            // Obtener el item seleccionado
             var oSelectedItem = oEvent.getParameter("listItem");
             var oContext = oSelectedItem.getBindingContext("erp13");
-
-            // Obtener los datos del usuario seleccionado
+        
             var oData = {
                 EmployeeId: oContext.getProperty("EmployeeId"),
                 FirstName: oContext.getProperty("FirstName"),
@@ -57,26 +55,36 @@ sap.ui.define([
                 Dni: oContext.getProperty("Dni"),
                 CreationDate: oContext.getProperty("CreationDate")
             };
-
-            // Establecer los datos en el modelo JSON de la segunda página (employeeHistoryPage)
+        
             var oDetailPageModel = new JSONModel(oData);
-            this.byId("employeeHistoryPage").setModel(oDetailPageModel);
-
+            this.byId("ListaEmplPag1").setModel(oDetailPageModel);
+            this.byId("ListaEmplPag2").setModel(oDetailPageModel);
+        
             // Navegar a la segunda página dentro del NavContainer
-            this.byId("detailNavContainer").to(this.byId("employeeHistoryPage"));
-
-            // Opcional: Mostrar un mensaje temporal con los datos seleccionados
-            MessageToast.show("Empleado seleccionado: " + oData.FirstName + " " + oData.LastName);
+            this.byId("detailNavContainer").to(this.byId("ListaEmplPag1")); // ID corregido
+        },
+        
+        onNavigateTolistaEmplPag1: function () {
+            this.byId("detailNavContainer").to(this.byId("ListaEmplPag2")); // ID corregido
+        },
+        
+        onNavigateTolistaEmplPag2: function () {
+            this.byId("detailNavContainer").to(this.byId("ListaEmplPag1")); // ID corregido
         },
 
         // Función para navegar de vuelta a la primera página
         onNavigateToDetail: function () {
             this.byId("detailNavContainer").back();
         },
-
-        // Función para navegar al historial desde la primera página
-        onNavigateToHistory: function () {
-            this.byId("detailNavContainer").to(this.byId("employeeHistoryPage"));
+ 
+        formatDate: function (sDate) {
+            if (!sDate) {
+                return ""; // Si la fecha es nula o no está definida
+            }
+            var oDateFormat = sap.ui.core.format.DateFormat.getDateInstance({
+                pattern: "dd MMM yyyy"  // Formato deseado
+            });
+            return oDateFormat.format(new Date(sDate));
         }
 
     });

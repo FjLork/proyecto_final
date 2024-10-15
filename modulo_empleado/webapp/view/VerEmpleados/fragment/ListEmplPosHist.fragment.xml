@@ -1,0 +1,28 @@
+<core:FragmentDefinition xmlns:cards="sap.f.cards" xmlns="sap.m"
+                         xmlns:form="sap.ui.layout.form"
+                         xmlns:layout="sap.ui.layout"
+                         xmlns:core="sap.ui.core">
+
+        <!-- Panel de Historial -->
+        <Panel headerText="Historial">
+            <content>
+                <List>
+                    <StandardListItem
+                        title="Consultoría"
+                        description="24.000,00"
+                        info="Ayer a las 19:00"
+                        icon="sap-icon://notes" />
+                    <StandardListItem
+                        title="Cálculo"
+                        description="40.000,00"
+                        info="Ayer a las 19:00"
+                        icon="sap-icon://calculator" />
+                    <StandardListItem
+                        title="Ascenso"
+                        description="30.000,00"
+                        info="Ayer a las 19:00"
+                        icon="sap-icon://employee-approvals" />
+                </List>
+            </content>
+        </Panel>
+</core:FragmentDefinition>

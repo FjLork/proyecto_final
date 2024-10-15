@@ -1,0 +1,65 @@
+<core:FragmentDefinition xmlns:cards="sap.f.cards" xmlns="sap.m"
+                         xmlns:form="sap.ui.layout.form"
+                         xmlns:layout="sap.ui.layout"
+                         xmlns:core="sap.ui.core">
+
+        <!-- Panel de Detalle Empleado -->
+        <Panel headerText="Detalle Empleado" class="customPanel">
+
+            <content>
+                <!-- Cabecera del empleado -->
+                <FlexBox class="customPanel" >
+                    <items>
+                        <!-- Icono de usuario -->
+                        <VBox>
+                            <core:Icon src="sap-icon://employee" size="4rem" class="sapUiLargeMarginBeginEnd" />
+                        </VBox>
+
+                        <!-- Información básica del empleado -->
+                        <VBox>
+                                <Text   text="{/FirstName} {/LastName}" 
+                                        class="sapUiTinyMarginTopBottom customTextLargeBold" />
+                                <Text   text="DNI: {/Dni}" 
+                                        class="sapUiTinyMarginTopBottom"/>
+                        </VBox>
+                    </items>
+                </FlexBox>
+
+                <FlexBox alignItems="Center">
+                                        <VBox>
+                    <Text   text="Fecha Incorporación: {path: '/CreationDate', formatter: '.formatDate'}" 
+                            class="sapUiTinyMarginTopBottom"/>
+                    <Text   text="Tipo: Autónomo" 
+                            class="sapUiTinyMarginTopBottom"/>
+                                            </VBox>
+                </FlexBox>
+
+
+    <HBox justifyContent="Center" alignItems="Center">
+        <!-- Botón Ficheros -->
+        <VBox alignItems="Center">
+            <Button icon="sap-icon://attachment" text="Ficheros" />
+        </VBox>
+        <!-- Espaciador para separación entre botones -->
+
+        <!-- Botón Historial -->
+        <VBox alignItems="Center">
+            <Button icon="sap-icon://money-bills" text="Historial" />
+        </VBox>
+    </HBox>
+
+                <!-- Sección de botones con íconos -->
+                <HBox justifyContent="Center" alignItems="Center">
+                    <!-- Botón Ficheros -->
+                    <VBox alignItems="Center">
+                        <Button icon="sap-icon://attachment" text="Ficheros" press="onNavigateTolistaEmplPag1" />
+                    </VBox>
+                    <!-- Botón Historial -->
+                    <VBox alignItems="Center">
+                        <Button icon="sap-icon://activity-individual" text="Historial" press="onNavigateTolistaEmplPag2" />
+                    </VBox>
+                </HBox>
+
+            </content>
+        </Panel>
+</core:FragmentDefinition>
