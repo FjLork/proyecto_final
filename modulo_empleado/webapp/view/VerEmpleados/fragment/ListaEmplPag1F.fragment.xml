@@ -1,7 +1,5 @@
-<core:FragmentDefinition xmlns:cards="sap.f.cards" xmlns="sap.m"
-                         xmlns:form="sap.ui.layout.form"
-                         xmlns:layout="sap.ui.layout"
-                         xmlns:core="sap.ui.core">
+<core:FragmentDefinition    xmlns="sap.m"
+                            xmlns:core="sap.ui.core">
     <VBox>
 
         <!-- Panel de Cabecera -->
@@ -10,7 +8,7 @@
                         type="XML" />
 
         <!-- Panel de Fichero -->
-        <core:Fragment  fragmentName="lorkgroup.moduloempleado.view.VerEmpleados.fragment.ListEmplPosFich" 
+        <core:Fragment  fragmentName="lorkgroup.moduloempleado.view.VerEmpleados.fragment.ListEmplPos1Fich" 
                         type="XML" />
 
 

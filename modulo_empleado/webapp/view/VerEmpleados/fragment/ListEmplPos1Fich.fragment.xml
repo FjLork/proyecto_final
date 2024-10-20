@@ -1,0 +1,43 @@
+
+<core:FragmentDefinition xmlns:cards="sap.f.cards" xmlns="sap.m"
+                         xmlns:form="sap.ui.layout.form"
+                         xmlns:layout="sap.ui.layout"
+                         xmlns:core="sap.ui.core">
+
+    <!-- Panel de Historial -->
+    <Panel headerText="Fichero">
+        <VBox>
+            <!-- Título de la tabla -->
+            <Title text="Archivos Adjuntos del Empleado" level="H2" />
+
+            <!-- Tabla para mostrar los archivos adjuntos del empleado -->
+            <Table id="idTable1Fich" items="{Attachments>/results}">
+                <headerToolbar>
+                    <Toolbar>
+                        <Title text="Lista de Archivos Adjuntos" level="H3" />
+                    </Toolbar>
+                </headerToolbar>
+                <columns>
+                    <Column>
+                        <Text text="ID de Archivo" />
+                    </Column>
+                    <Column>
+                        <Text text="Nombre del Documento" />
+                    </Column>
+                    <Column>
+                        <Text text="Tipo MIME" />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="{Attachments>EmployeeId}" />
+                            <Text text="{Attachments>DocName}" />
+                            <Text text="{Attachments>MimeType}" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </VBox>
+    </Panel>
+</core:FragmentDefinition>

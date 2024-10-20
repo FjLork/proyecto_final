@@ -6,6 +6,35 @@
 
 .customPanel {
     background-color: #e0f7fa; /* Color de fondo azul clarito */
-    padding: 10px; /* Espaciado interno opcional */
-    border-radius: 5px; /* Bordes redondeados opcional */
+}
+/* Fondo azul claro para el encabezado del empleado */
+.blueBackground {
+    background-color: #e0f7fa; /* Color azul claro */
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+/* Texto grande y en negrita */
+.customTextLargeBold {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Botones destacados con borde azul */
+sapMButtonEmphasized {
+    border: 2px solid #0a74da; /* Color de borde azul */
+    color: #0a74da;
+}
+
+/* Personalizar el fondo del Panel */
+sapMPanel {
+    background-color: white;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+/* Ajuste de márgenes para el contenedor */
+.customPanel {
+    margin: 20px;
 }

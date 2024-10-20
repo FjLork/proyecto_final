@@ -7,8 +7,8 @@
         <Panel headerText="Detalle Empleado" class="customPanel">
 
             <content>
-                <!-- Cabecera del empleado -->
-                <FlexBox class="customPanel" >
+                <!-- Cabecera del empleado con fondo azul claro -->
+                <FlexBox class="customPanel blueBackground">
                     <items>
                         <!-- Icono de usuario -->
                         <VBox>
@@ -17,46 +17,39 @@
 
                         <!-- Información básica del empleado -->
                         <VBox>
-                                <Text   text="{/FirstName} {/LastName}" 
-                                        class="sapUiTinyMarginTopBottom customTextLargeBold" />
-                                <Text   text="DNI: {/Dni}" 
-                                        class="sapUiTinyMarginTopBottom"/>
+                                <Text text="{/FirstName} {/LastName}" 
+                                      class="sapUiTinyMarginTopBottom customTextLargeBold" />
+                                <Text text="DNI: {/Dni}" 
+                                      class="sapUiTinyMarginTopBottom"/>
+                                <Text text="Id Empleado: {/EmployeeId}" 
+                                      class="sapUiTinyMarginTopBottom"/>
+                                      
                         </VBox>
                     </items>
                 </FlexBox>
 
                 <FlexBox alignItems="Center">
-                                        <VBox>
-                    <Text   text="Fecha Incorporación: {path: '/CreationDate', formatter: '.formatDate'}" 
-                            class="sapUiTinyMarginTopBottom"/>
-                    <Text   text="Tipo: Autónomo" 
-                            class="sapUiTinyMarginTopBottom"/>
-                                            </VBox>
+                    <VBox>
+                        <Text text="Fecha Incorporación: {path: '/CreationDate', formatter: '.formatDate'}" 
+                              class="sapUiTinyMarginTopBottom"/>
+                        <Text text="Tipo: Autónomo" 
+                              class="sapUiTinyMarginTopBottom"/>
+                    </VBox>
                 </FlexBox>
 
-
-    <HBox justifyContent="Center" alignItems="Center">
-        <!-- Botón Ficheros -->
-        <VBox alignItems="Center">
-            <Button icon="sap-icon://attachment" text="Ficheros" />
-        </VBox>
-        <!-- Espaciador para separación entre botones -->
-
-        <!-- Botón Historial -->
-        <VBox alignItems="Center">
-            <Button icon="sap-icon://money-bills" text="Historial" />
-        </VBox>
-    </HBox>
-
-                <!-- Sección de botones con íconos -->
+                <!-- Otra sección de botones con íconos para navegación -->
                 <HBox justifyContent="Center" alignItems="Center">
                     <!-- Botón Ficheros -->
                     <VBox alignItems="Center">
-                        <Button icon="sap-icon://attachment" text="Ficheros" press="onNavigateTolistaEmplPag1" />
+                        <Button icon="sap-icon://attachment" 
+                                text="Ficheros" 
+                                press="onNavigateToListaEmplPag1F" />
                     </VBox>
                     <!-- Botón Historial -->
                     <VBox alignItems="Center">
-                        <Button icon="sap-icon://activity-individual" text="Historial" press="onNavigateTolistaEmplPag2" />
+                        <Button icon="sap-icon://activity-individual" 
+                                text="Historial" 
+                                press="onNavigateToListaEmplPag2H" />
                     </VBox>
                 </HBox>
 

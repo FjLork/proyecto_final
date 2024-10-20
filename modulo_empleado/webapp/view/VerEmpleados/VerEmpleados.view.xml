@@ -45,7 +45,7 @@
             <detailPages>
                 <NavContainer id="detailNavContainer">
                     <!-- Página de Detalle 1 (Información del empleado) -->
-                    <Page id="ListaEmplPag0" title="Detalle del Empleado">
+                    <Page id="ListaEmplPag0" title="Detalle del Empleado" class="customPanel">
                         <content>
                             <core:Fragment fragmentName="lorkgroup.moduloempleado.view.VerEmpleados.fragment.ListaEmplPag0" type="XML" />
                         </content>
@@ -58,30 +58,31 @@
                     </Page>
 
                     <!-- Página de Detalle 2 (Historial del empleado) -->
-                    <Page id="ListaEmplPag1" title="Fichero del Empleado">
+                    <Page id="ListaEmplPag1F" title="Fichero del Empleado">
                         <content>
-                            <core:Fragment fragmentName="lorkgroup.moduloempleado.view.VerEmpleados.fragment.ListaEmplPag1" type="XML" />
+                            <core:Fragment fragmentName="lorkgroup.moduloempleado.view.VerEmpleados.fragment.ListaEmplPag1F" type="XML" />
                         </content>
                         <footer view="true">
                             <Toolbar>
                                 <ToolbarSpacer />
-                                <Button text="Pag 02" press="onNavigateTolistaEmplPag2" />
+                                <Button text="Pag 02" press="onNavigateToListaEmplPag2H" />
                             </Toolbar>
                         </footer>
                     </Page>
 
                     <!-- Página de Detalle 3 (Fichero del empleado) -->
-                    <Page id="ListaEmplPag2" title="Historial del Empleado">
+                    <Page id="ListaEmplPag2H" title="Historial del Empleado">
                         <content>
-                            <core:Fragment fragmentName="lorkgroup.moduloempleado.view.VerEmpleados.fragment.ListaEmplPag2" type="XML" />
+                            <core:Fragment fragmentName="lorkgroup.moduloempleado.view.VerEmpleados.fragment.ListaEmplPag2H" type="XML" />
                         </content>
                         <footer view="true">
                             <Toolbar>
                                 <ToolbarSpacer />
-                                <Button text="Pag 01" press="onNavigateTolistaEmplPag1" />
+                                <Button text="Pag 01" press="onNavigateToListaEmplPag1F" />
                             </Toolbar>
                         </footer>
                     </Page>
+
                 </NavContainer>
 
             </detailPages>

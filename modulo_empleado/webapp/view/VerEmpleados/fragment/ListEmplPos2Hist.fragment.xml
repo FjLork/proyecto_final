@@ -1,0 +1,44 @@
+
+<core:FragmentDefinition xmlns:cards="sap.f.cards" xmlns="sap.m"
+                         xmlns:form="sap.ui.layout.form"
+                         xmlns:layout="sap.ui.layout"
+                         xmlns:core="sap.ui.core">
+
+        <!-- Panel de Historial -->
+        <Panel headerText="Historial de Salarios">
+            <VBox>
+                <!-- Título de la tabla -->
+                <Title text="Salarios del Empleado" level="H2" />
+
+                <!-- Tabla para mostrar los salarios del empleado -->
+                <Table id="idTable2Hist" items="{salaries>/results}">
+                    <headerToolbar>
+                        <Toolbar>
+                            <Title text="Historial de Salarios" level="H3" />
+                        </Toolbar>
+                    </headerToolbar>
+                    <columns>
+                        <Column>
+                            <Text text="Fecha de Inicio" />
+                        </Column>
+                        <Column>
+                            <Text text="Fecha de Fin" />
+                        </Column>
+                        <Column>
+                            <Text text="Monto del Salario" />
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem>
+                            <cells>
+                                <Text text="{salaries>EmployeeId}" />
+                                <Text text="{salaries>SapId}" />
+                                <Text text="{salaries>EmployeeId}" />
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </VBox>
+        </Panel>
+</core:FragmentDefinition>
+
