@@ -3,35 +3,57 @@
                             xmlns:form="sap.ui.layout.form">
     <!-- Contenedor Vertical -->
 						<form:SimpleForm
-								title="1. Product Type"
+								title="Tipo de empleado"
 								editable="false"
 								layout="ResponsiveGridLayout">
 							<form:content>
 								<Label text="Type"/>
-								<Text id="ProductTypeChosen" text="{/productType}"/>
+								<Text id="ProductTypeChosen" text="{/UserType}"/>
 								<Link press="editStepOne" text="Edit" />
 							</form:content>
 						</form:SimpleForm>
 
 						<form:SimpleForm
-								title="2. Product Information"
+								title="Datos empleado"
 								editable="false"
 								layout="ResponsiveGridLayout">
 							<form:content>
 								<Label text="Name"/>
-								<Text id="ProductNameChosen" text="{/productName}"/>
+								<Text id="UserFirstNameChosen" text="{/UserFirstName}"/>
 								<Label text="Weight"/>
-								<Text id="ProductWeightChosen" text="{/productWeight}"/>
+								<Text id="UserLastNameChosen" text="{/UserLastName}"/>
 								<Label text="Manufacturer"/>
-								<Text id="ProductManufacturerChosen" text="{/productManufacturer}"/>
-								<Label text="Description"/>
-								<Text id="ProductDescriptionChosen" text="{/productDescription}"/>
-								<Link press="editStepTwo" text="Edit" />
+        <Label 	text="CIF (2)" />
+        <Text text="{/UserCIF}"
+                id="UserCIFChosen"/>
+
+        <!-- Campo de DNI -->
+        <Label 	text="DNI (1,3)" />
+        <Text text="{/UserDni}"
+                id="UserDNIChosen"/>
+
+        <!-- Campo de Salario Bruto anual -->
+        <Label text="Salario Bruto anual: (1,3)" />
+        <Text text="{/SalaryAmount1}"
+                id="SalaryAmount1Chosen"/>
+
+        <!-- Campo de Precio Diario -->
+        <Label text="Precio Diario: (1)" />
+        <Text text="{/SalaryAmount}"
+                id="SalaryAmount2Chosen"/>
+
+
+        <!-- Campo de Fecha de Incorporación -->
+        <Label text="Fecha Incorporación  (1,2,3)" />
+        <DatePicker text="{/SalaryCreationDate}" />
+
+
+
 							</form:content>
 						</form:SimpleForm>
 
 						<form:SimpleForm
-								title="3. Optional Information"
+								title="Informacion adicional"
 								editable="false"
 								layout="ResponsiveGridLayout">
 							<form:content>

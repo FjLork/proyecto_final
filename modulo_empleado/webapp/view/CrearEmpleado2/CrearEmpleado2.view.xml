@@ -6,51 +6,73 @@
     xmlns:u="sap.ui.unified"
     xmlns="sap.m">
 
-    <Page title="Crear Usuario con Salario y Adjuntos">
-                <headerContent>
-                    <!-- Botón para Volver al Menú Principal -->
-                    <Button text="Menú Principal" icon="sap-icon://home" press=".onNavigateToMenuPrincipal" />
-                </headerContent>
+    <!-- Título -->
+    <Page title="Gestión de Empleados">
         <content>
-       
-            <VBox class="sapUiSmallMargin">
+            <!-- Formulario de Usuario -->
+            <SimpleForm
+                id="UserForm"
+                editable="true"
+                layout="ResponsiveGridLayout"
+                title="Información del Empleado">
 
-                <!-- Sección de Datos del Usuario -->
-                <Title text="Datos del Usuario" level="H2" />
-                
-                <Label text="User ID:" required="true" />
-                <Input id="userId" placeholder="Ingrese el ID del usuario" />
+                <Label text="ID del Empleado"/>
+                <Input value="{/User/EmployeeId}" editable="false"/>
 
-                <Label text="Nombre:" required="true" />
-                <Input id="userName" placeholder="Ingrese el nombre del usuario" />
+                <Label text="ID SAP"/>
+                <Input value="{/User/SapId}" editable="false"/>
 
-                <Label text="Apellido:" required="true" />
-                <Input id="userLastName" placeholder="Ingrese el apellido del usuario" />
+                <Label text="Nombre"/>
+                <Input value="{/User/FirstName}"/>
 
-                <Label text="Correo Electrónico:" required="true" />
-                <Input id="userEmail" placeholder="Ingrese el correo electrónico" />
+                <Label text="Apellidos"/>
+                <Input value="{/User/LastName}"/>
 
-                <Label text="Teléfono:" />
-                <Input id="userPhone" placeholder="Ingrese el número de teléfono" />
+                <Label text="DNI"/>
+                <Input value="{/User/Dni}"/>
 
-                <!-- Sección de Salario -->
-                <Title text="Datos del Salario" level="H2" class="sapUiSmallMarginTop" />
-                
-                <Label text="Salario Base:" required="true" />
-                <Input id="baseSalary" placeholder="Ingrese el salario base" type="Number" />
+                <Label text="Fecha de Creación"/>
+                <DatePicker value="{path: '/User/CreationDate', type: 'sap.ui.model.type.Date', formatOptions: {style: 'medium'}}"/>
 
-                <Label text="Bonificaciones:" />
-                <Input id="bonus" placeholder="Ingrese las bonificaciones" type="Number" />
+                <Label text="Comentarios"/>
+                <TextArea value="{/User/Comments}" rows="3"/>
 
-                <!-- Sección de Adjuntos -->
-                <Title text="Adjuntar Documentos" level="H2" class="sapUiSmallMarginTop" />
-                
-                <Label text="Documento Adjunto:" />
-                <u:FileUploader id="fleUploader" placeholder="Seleccione un archivo para adjuntar" width="100%" />
+            </SimpleForm>
 
-                <!-- Botón para guardar los datos ingresados -->
-                <Button text="Guardar" press="onSave" type="Emphasized" class="sapUiSmallMarginTop" />
-            </VBox>
+            <!-- Formulario de Salario -->
+            <SimpleForm
+                id="SalaryForm"
+                editable="true"
+                layout="ResponsiveGridLayout"
+                title="Información de Salario">
+
+                <Label text="ID del Salario"/>
+                <Input value="{/Salary/SalaryId}" editable="false"/>
+
+                <Label text="ID SAP"/>
+                <Input value="{/Salary/SapId}" editable="false"/>
+
+                <Label text="Monto"/>
+                <Input value="{/Salary/Amount}" type="Number"/>
+
+                <Label text="Moneda"/>
+                <Input value="{/Salary/Waers}"/>
+
+                <Label text="Fecha de Creación"/>
+                <DatePicker value="{path: '/Salary/CreationDate', type: 'sap.ui.model.type.Date', formatOptions: {style: 'medium'}}"/>
+
+                <Label text="Comentarios"/>
+                <TextArea value="{/Salary/Comments}" rows="3"/>
+
+            </SimpleForm>
+
+            <!-- Botón de acción -->
+            <Button text="Guardar" type="Emphasized" press="onSave"/>
         </content>
     </Page>
+
+
+
+
+
 </mvc:View>

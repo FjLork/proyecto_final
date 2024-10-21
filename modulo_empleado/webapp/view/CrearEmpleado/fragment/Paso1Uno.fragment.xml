@@ -1,0 +1,27 @@
+<core:FragmentDefinition xmlns="sap.m"
+                         xmlns:core="sap.ui.core">
+
+								<MessageStrip 	class="sapUiSmallMarginBottom"
+                      							text="Seleccione el tipo de empleado para rellenar sus datos."
+												showIcon="true"/>
+
+								<HBox	alignItems="Center"
+										justifyContent="Center"
+										width="100%">
+
+									<SegmentedButton	width="320px"
+														selectionChange="setProductTypeFromSegmented">
+										<items>
+											<SegmentedButtonItem        icon="sap-icon://idea-wall"       
+																		text="Interno"/>
+
+											<SegmentedButtonItem        icon="sap-icon://people-connected"  
+																		text="Autonomo"/>
+
+											<SegmentedButtonItem        icon="sap-icon://database"     
+																		text="Gerente"/>
+										</items>
+									</SegmentedButton>
+								</HBox>
+
+</core:FragmentDefinition>

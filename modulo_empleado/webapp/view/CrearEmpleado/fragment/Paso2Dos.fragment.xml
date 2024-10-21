@@ -1,0 +1,68 @@
+<core:FragmentDefinition xmlns="sap.m"
+                         xmlns:form="sap.ui.layout.form"
+                         xmlns:layout="sap.ui.layout"
+                         xmlns:core="sap.ui.core">
+
+    <!-- Barra de mensaje informativa -->
+    <MessageStrip 	class="sapUiSmallMarginBottom"
+					text="Complete los datos obligatorios para poder continuar"
+					type="Information"
+					showIcon="true" />
+
+    <!-- Formulario con campos obligatorios -->
+    <form:SimpleForm	editable="true"
+						layout="ResponsiveGridLayout">
+
+        <!-- Campo de Nombre -->
+        <Label 	text="Nombre  (1,2,3)" 
+				required="true" />
+        <Input 	valueStateText="Ingrese 6 caracteres o más"
+				valueState="{/UserFirstName}" 
+				id="UserFirstName" 
+				liveChange="additionalInfoValidation"
+				placeholder="Ingrese nombre con longitud mayor a 6" 
+				value="{/UserFirstName}" />
+
+        <!-- Campo de Apellidos -->
+        <Label 	text="Apellidos (1,2,3)" 
+				required="true" />
+        <Input 	valueStateText="Ingrese un valor numérico"
+				valueState="{/UserLastName}" 
+				id="UserLastName"
+				liveChange="additionalInfoValidation" 
+				type="Number" 
+				placeholder="Ingrese peso"
+				value="{/UserLastName}" />
+
+        <!-- Campo de CIF -->
+        <Label 	text="CIF (2)" />
+        <Input 	value="{/UserCIF}"
+                id="UserCIF"
+                liveChange="additionalInfoValidation"/>
+
+        <!-- Campo de DNI -->
+        <Label 	text="DNI (1,3)" />
+        <Input 	value="{/UserDni}"
+                id="UserDNI"
+                liveChange="additionalInfoValidation"/>
+
+        <!-- Campo de Salario Bruto anual -->
+        <Label text="Salario Bruto anual: (1,3)" />
+        <Input 	value="{/SalaryAmount1}"
+                id="SalaryAmount1"
+                liveChange="additionalInfoValidation"/>
+
+        <!-- Campo de Precio Diario -->
+        <Label text="Precio Diario: (1)" />
+        <Input 	value="{/SalaryAmount2}"
+                id="SalaryAmount2"
+                liveChange="additionalInfoValidation"/>
+
+
+        <!-- Campo de Fecha de Incorporación -->
+        <Label text="Fecha Incorporación  (1,2,3)" />
+        <DatePicker value="{/SalaryCreationDate}" />
+
+    </form:SimpleForm>
+
+</core:FragmentDefinition>

@@ -8,7 +8,7 @@
                                 layout="ResponsiveGridLayout">
                     <form:content>
                         <Label text="Tipo"/>
-                        <Text id="ProductTypeChosen" text="{/productType}"/>
+                        <Text id="ProductTypeChosen" text="{/UserType}"/>
                         <Link press=".editStepOne" text="Editar" />
                     </form:content>
                 </form:SimpleForm>

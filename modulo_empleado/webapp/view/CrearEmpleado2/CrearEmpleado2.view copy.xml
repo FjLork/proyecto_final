@@ -1,0 +1,56 @@
+<mvc:View
+    height="100%"
+    controllerName="lorkgroup.moduloempleado.controller.CrearEmpleado2.CrearEmpleado2" 
+    xmlns:core="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:u="sap.ui.unified"
+    xmlns="sap.m">
+
+    <Page title="Crear Usuario con Salario y Adjuntos">
+                <headerContent>
+                    <!-- Botón para Volver al Menú Principal -->
+                    <Button text="Menú Principal" icon="sap-icon://home" press=".onNavigateToMenuPrincipal" />
+                </headerContent>
+        <content>
+       
+            <VBox class="sapUiSmallMargin">
+
+                <!-- Sección de Datos del Usuario -->
+                <Title text="Datos del Usuario" level="H2" />
+                
+                <Label text="User ID:" required="true" />
+                <Input id="userId" placeholder="Ingrese el ID del usuario" />
+
+                <Label text="Nombre:" required="true" />
+                <Input id="userName" placeholder="Ingrese el nombre del usuario" />
+
+                <Label text="Apellido:" required="true" />
+                <Input id="userLastName" placeholder="Ingrese el apellido del usuario" />
+
+                <Label text="Correo Electrónico:" required="true" />
+                <Input id="userEmail" placeholder="Ingrese el correo electrónico" />
+
+                <Label text="Teléfono:" />
+                <Input id="userPhone" placeholder="Ingrese el número de teléfono" />
+
+                <!-- Sección de Salario -->
+                <Title text="Datos del Salario" level="H2" class="sapUiSmallMarginTop" />
+                
+                <Label text="Salario Base:" required="true" />
+                <Input id="baseSalary" placeholder="Ingrese el salario base" type="Number" />
+
+                <Label text="Bonificaciones:" />
+                <Input id="bonus" placeholder="Ingrese las bonificaciones" type="Number" />
+
+                <!-- Sección de Adjuntos -->
+                <Title text="Adjuntar Documentos" level="H2" class="sapUiSmallMarginTop" />
+                
+                <Label text="Documento Adjunto:" />
+                <u:FileUploader id="fleUploader" placeholder="Seleccione un archivo para adjuntar" width="100%" />
+
+                <!-- Botón para guardar los datos ingresados -->
+                <Button text="Guardar" press="onSave" type="Emphasized" class="sapUiSmallMarginTop" />
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>
