@@ -1,0 +1,32 @@
+{
+    "Users": {
+        "EmployeeId": "0001",
+        "SapId": "1001@gmail.com",
+        "Type": "0",
+        "TypeDescr": "Interno",
+        "FirstName": "Nombre",
+        "LastName": "Apellido",
+        "Dni": "94043955Z",
+        "CreationDate": "2024-10-21",
+        "Comments": "0001 - Empleado departamento de ventas"
+    },
+    "Salaries": {
+        "SalaryId": "0001",
+        "Amount": 50000,
+        "Waers": "EUR"
+    },
+    "Attachments": {
+        "AttId": "0001",
+        "DocName": "resume.pdf",
+        "MimeType": "application/pdf"
+    },
+    
+    "Texto": {
+        "DNI": "DNI:",
+        "Precio": "Salario Bruto anual",
+        "PrecioMin": "12000",
+        "PrecioMax": "80000",
+        "MimeType": "application/pdf"
+    }
+}
+      

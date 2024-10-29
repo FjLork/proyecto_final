@@ -1,0 +1,133 @@
+<mvc:View
+    controllerName="lorkgroup.moduloempleado.controller.CrearEmpleado2.CrearEmpleado2" 
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:u="sap.ui.unified"
+    xmlns:form="sap.ui.layout.form">
+    <Page title="Añadir Empleado, Salario y Adjuntos">
+        <content>
+
+            <!-- 1. Tipo de empleado -->
+            <form:SimpleForm    id="paso1Form"
+                                editable="true"
+                                layout="ResponsiveGridLayout"
+                                title="1. Tipo de empleado"
+                                class="sapUiSmallMargin sapUiLargeMarginBottom">
+
+                <VBox>
+
+                    <!-- Contenedor horizontal para el botón segmentado -->
+                    <HBox alignItems="Center" justifyContent="Center" width="100%" class="sapUiSmallMarginTop">
+                        <SegmentedButton width="420px" selectionChange=".TypeFrom">
+                            <items>
+                                <SegmentedButtonItem icon="sap-icon://idea-wall" text="Interno"/>
+                                <SegmentedButtonItem icon="sap-icon://people-connected" text="Autonomo"/>
+                                <SegmentedButtonItem icon="sap-icon://database" text="Gerente"/>
+                            </items>
+                        </SegmentedButton>
+                    </HBox>
+
+                    <!-- Contenedor horizontal para el input y el label -->
+                    <HBox alignItems="Center" justifyContent="Center" width="100%" class="sapUiSmallMarginTop" visible="false">
+                        <Label text="Tipo" />
+                        <Input id="inputType1" value="{/UserType}"/>
+                    </HBox>
+
+                    <!-- Contenedor horizontal para el input y el label -->
+                    <HBox alignItems="Center" justifyContent="Center" width="100%" class="sapUiSmallMarginTop" visible="false">
+                        <Label text="Tipo" />
+                        <Input id="inputTypeDescr" value="{/UserTypeDescr}"/>
+                    </HBox>
+
+                </VBox>
+
+            </form:SimpleForm>
+
+            <!-- 2. Datos empleado -->
+            <form:SimpleForm    id="paso2Form"
+                                editable="true"
+                                layout="ResponsiveGridLayout"
+                                title="2. Datos empleado"
+                                class="sapUiSmallMargin sapUiLargeMarginBottom">
+
+                <Label text="ID de Empleado (máx. 4 caracteres)" />
+                <Input id="inputEmployeeId" placeholder="Ingrese ID de Empleado" maxLength="4" valueLiveUpdate="true" change="onEmployeeIdChange" required="true" />
+
+                <Label text="ID de SAP (máx. 40 caracteres)" />
+                <Input id="inputSapId" placeholder="Ingrese ID de SAP" maxLength="40" valueLiveUpdate="true" change="onSapIdChange" required="true" />
+
+                <Label text="Nombre" />
+                <Input id="inputFirstName" placeholder="Ingrese Nombre" maxLength="40" valueLiveUpdate="true" change="onFirstNameChange" />
+
+                <Label text="Apellido" />
+                <Input id="inputLastName" placeholder="Ingrese Apellido" maxLength="40" valueLiveUpdate="true" change="onLastNameChange" />
+
+                <Label text="DNI (máx. 20 caracteres)" />
+                <Input id="inputDni" placeholder="Ingrese DNI" maxLength="20" type="Text" valueLiveUpdate="true" change="onDniChange" />
+
+                <Label text="Fecha de Creación" />
+                <DatePicker id="inputCreationDate" placeholder="Ingrese Fecha de Creación" displayFormat="dd/MM/yyyy" valueFormat="yyyy-MM-dd" change="onCreationDateChange" required="true" />
+
+            </form:SimpleForm>
+
+            <!-- 3. Información adicional -->
+            <form:SimpleForm    id="paso3Form"
+                                editable="true"
+                                layout="ResponsiveGridLayout"
+                                title="3. Información adicional"
+                                class="sapUiSmallMargin sapUiLargeMarginBottom">
+
+                <Label text="ID de Adjunto (máx. 4 caracteres)" />
+                <Input id="inputAttId" placeholder="Ingrese ID de Adjunto" maxLength="4" valueLiveUpdate="true" change="onAttIdChange" required="true" />
+
+                <Label text="ID de SAP (máx. 40 caracteres)" />
+                <Input id="inputAttachmentSapId" placeholder="Ingrese ID de SAP" maxLength="40" valueLiveUpdate="true" change="onAttachmentSapIdChange" required="true" />
+
+                <Label text="ID de Empleado (máx. 4 caracteres)" />
+                <Input id="inputAttachmentEmployeeId" placeholder="Ingrese ID de Empleado" maxLength="4" valueLiveUpdate="true" change="onAttachmentEmployeeIdChange" required="true" />
+
+                <Label text="Nombre del Documento (máx. 80 caracteres)" />
+                <Input id="fileUploader" placeholder="Ingrese Nombre del Documento" maxLength="80" valueLiveUpdate="true" change="onDocNameChange" required="true" />
+
+                <Label text="Tipo MIME (máx. 128 caracteres)" />
+                <Input id="inputMimeType" placeholder="Ingrese Tipo MIME" maxLength="128" valueLiveUpdate="true" change="onMimeTypeChange" required="true" />
+
+                <Label text="Subir Archivo" />
+                <u:FileUploader  
+                                id="inputDocName"
+                                uploadUrl="/sap/opu/odata/sap/ZEMPLOYEES_SRV/Attachments" 
+                                change="onFileChange" 
+                                uploadComplete="onUploadComplete" 
+                                fileType="pdf,doc,docx,png,jpg,txt" 
+                                maximumFileSize="20"
+                                placeholder="Seleccione un archivo a subir" 
+                                headerParameters="{ name: 'x-csrf-token', value: '{csrfToken}' }" />
+
+                <Button text="Subir Archivos" press="onUploadFiles" />
+
+                <Label text="Comentarios (máx. 200 caracteres)" />
+                <TextArea id="inputComments" placeholder="Ingrese Comentarios" maxLength="200" rows="2" valueLiveUpdate="true" change="onCommentsChange" />
+
+            </form:SimpleForm>
+
+            <!-- Contenedor para mostrar tipo de empleado seleccionado -->
+            <form:SimpleForm
+                id="FinForm1"
+                editable="true"
+                layout="ResponsiveGridLayout"
+                title="Resumen"
+                class="sapUiSmallMargin">
+                <Label text="Tipo" />
+                <Text id="textTypeDescr" text="{/UserTypeDescr}"/>
+            </form:SimpleForm>
+
+            <!-- Botón para enviar los datos -->
+            <Button
+                text="Añadir Datos"
+                type="Emphasized"
+                press="onAddEntities"
+                class="sapUiSmallMarginTop" />
+                
+        </content>
+    </Page>
+</mvc:View>

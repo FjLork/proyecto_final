@@ -1,0 +1,27 @@
+<core:FragmentDefinition xmlns="sap.m"
+                         xmlns:core="sap.ui.core">
+    <!-- Contenedor principal con diseño vertical -->
+    <VBox class="sapUiSmallMargin">
+        <!-- Título de la sección -->
+        <Text text="1. Tipo de empleado" design="Bold" />
+
+        <!-- Mensaje de ayuda para la selección de tipo de empleado -->
+        <MessageStrip class="sapUiSmallMarginBottom"
+                      text="Seleccione el tipo de empleado para rellenar sus datos."
+                      showIcon="true" />
+
+        <!-- Contenedor horizontal para el botón segmentado -->
+        <HBox alignItems="Center" justifyContent="Center" width="100%" class="sapUiSmallMarginTop">
+            <SegmentedButton width="420px" selectionChange="setProductTypeFromSegmented">
+                <items>
+                    <SegmentedButtonItem        icon="sap-icon://idea-wall"       
+                                                text="Interno"/>
+                    <SegmentedButtonItem        icon="sap-icon://people-connected"  
+                                                text="Autonomo"/>
+                    <SegmentedButtonItem        icon="sap-icon://database"     
+                                                text="Gerente"/>
+                </items>
+            </SegmentedButton>
+        </HBox>
+    </VBox>
+</core:FragmentDefinition>

@@ -10,18 +10,27 @@
 
 								<form:SimpleForm	editable="true"
 													layout="ResponsiveGridLayout">
-									
-									<Label 		text="Comentario"/>
-									<TextArea 	value="{/UserComments}" 
-												rows="3"/>
 
-									<Label 				text="Anexos"/>
-									<u:FileUploader		width="100%"
-														tooltip="No existen archivos. (Tooktip)"
-														style="Emphasized"
-														placeholder="No existen archivos... (place)"
-														value="{/AttachDocName}"/>
-								</form:SimpleForm>
+                <Label text="Comentarios" />
+				<TextArea 	value="{users>/Users/Comments}"
+							ows="3"/>
+
+                <Label text="ID de Adjunto" />
+                <Input value="{users>/Attachments/AttId}" editable="false"/>
+
+                <Label text="Nombre del Documento" />
+                <Input value="{users>/Attachments/DocName}" editable="false"/>
+
+                <Label text="Tipo MIME" />
+                <Input value="{users>/Attachments/MimeType}" editable="false"/>
+
+				<Label 				text="Anexos"/>
+				<u:FileUploader		width="100%"
+									tooltip="No existen archivos. (Tooktip)"
+									style="Emphasized"
+									placeholder="No existen archivos... (place)"
+									value="{users>/Attachments/DocName}"/>
+			</form:SimpleForm>
 
 
 </core:FragmentDefinition>  

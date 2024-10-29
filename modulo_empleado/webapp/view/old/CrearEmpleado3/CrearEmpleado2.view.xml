@@ -1,0 +1,122 @@
+<mvc:View
+    controllerName="lorkgroup.moduloempleado.controller.CrearEmpleado2.CrearEmpleado2" 
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:u="sap.ui.unified"
+    xmlns:form="sap.ui.layout.form">
+    <Page title="Añadir Empleado, Salario y Adjuntos">
+        <content>
+
+            <!-- Información del Empleado -->
+            <form:SimpleForm
+                id="simpleForm1"
+                editable="true"
+                layout="ResponsiveGridLayout"
+                title="Información del Empleado"
+                class="sapUiSmallMargin sapUiLargeMarginBottom">
+
+                <Label text="ID de Empleado (máx. 4 caracteres)" />
+                <Input id="inputEmployeeId" placeholder="Ingrese ID de Empleado" maxlength="4" valueLiveUpdate="true" change="onEmployeeIdChange" required="true" />
+
+                <Label text="ID de SAP (máx. 40 caracteres)" />
+                <Input id="inputSapId" placeholder="Ingrese ID de SAP" maxlength="40" valueLiveUpdate="true" change="onSapIdChange" required="true" />
+
+                <Label text="Tipo (máx. 1 caracter)" />
+                <Input id="inputType" placeholder="Ingrese Tipo (ej: M/F)" maxlength="1" valueLiveUpdate="true" change="onTypeChange" />
+
+                <Label text="Nombre" />
+                <Input id="inputFirstName" placeholder="Ingrese Nombre" maxlength="40" valueLiveUpdate="true" change="onFirstNameChange" />
+
+                <Label text="Apellido" />
+                <Input id="inputLastName" placeholder="Ingrese Apellido" maxlength="40" valueLiveUpdate="true" change="onLastNameChange" />
+
+                <Label text="DNI (máx. 20 caracteres)" />
+                <Input id="inputDni" placeholder="Ingrese DNI" maxlength="20" type="Text" valueLiveUpdate="true" change="onDniChange" />
+
+                <Label text="Fecha de Creación" />
+                <DatePicker id="inputCreationDate" placeholder="Ingrese Fecha de Creación" displayFormat="dd/MM/yyyy" valueFormat="yyyy-MM-dd" change="onCreationDateChange" required="true" />
+
+                <Label text="Comentarios (máx. 200 caracteres)" />
+                <TextArea id="inputComments" placeholder="Ingrese Comentarios" maxlength="200" rows="2" valueLiveUpdate="true" change="onCommentsChange" />
+            </form:SimpleForm>
+
+            <!-- Información del Salario -->
+            <form:SimpleForm
+                id="simpleForm2"
+                editable="true"
+                layout="ResponsiveGridLayout"
+                title="Información del Salario"
+                class="sapUiSmallMargin sapUiLargeMarginBottom">
+
+                <Label text="ID de Salario (máx. 4 caracteres)" />
+                <Input id="inputSalaryId" placeholder="Ingrese ID de Salario" maxlength="4" valueLiveUpdate="true" change="onSalaryIdChange" required="true" />
+
+                <Label text="ID de SAP (máx. 40 caracteres)" />
+                <Input id="inputSalarySapId" placeholder="Ingrese ID de SAP" maxlength="40" valueLiveUpdate="true" change="onSalarySapIdChange" required="true" />
+
+                <Label text="ID de Empleado (máx. 4 caracteres)" />
+                <Input id="inputSalaryEmployeeId" placeholder="Ingrese ID de Empleado" maxlength="4" valueLiveUpdate="true" change="onSalaryEmployeeIdChange" required="true" />
+
+                <Label text="Fecha de Creación del Salario" />
+                <DatePicker id="inputSalaryCreationDate" placeholder="Ingrese Fecha de Creación del Salario" displayFormat="dd/MM/yyyy" valueFormat="yyyy-MM-dd" change="onSalaryCreationDateChange" />
+
+                <Label text="Cantidad (decimal, máximo 17 dígitos con 2 decimales)" />
+                <Input id="inputAmount" placeholder="Ingrese Cantidad" type="Number" valueLiveUpdate="true" change="onAmountChange" />
+
+                <Label text="Código de Moneda (máx. 5 caracteres)" />
+                <Input id="inputWaers" placeholder="Ingrese Código de Moneda" maxlength="5" valueLiveUpdate="true" change="onWaersChange" />
+
+                <Label text="Comentarios (máx. 200 caracteres)" />
+                <TextArea id="inputSalaryComments" placeholder="Ingrese Comentarios" maxlength="200" rows="2" valueLiveUpdate="true" change="onSalaryCommentsChange" />
+            </form:SimpleForm>            
+
+            <!-- Información del Adjunto -->           
+            <form:SimpleForm
+                id="simpleForm3"
+                editable="true"
+                layout="ResponsiveGridLayout"
+                title="Información del Adjunto"
+                class="sapUiSmallMargin">
+
+                <Label text="ID de Adjunto (máx. 4 caracteres)" />
+                <Input id="inputAttId" placeholder="Ingrese ID de Adjunto" maxlength="4" valueLiveUpdate="true" change="onAttIdChange" required="true" />
+
+                <Label text="ID de SAP (máx. 40 caracteres)" />
+                <Input id="inputAttachmentSapId" placeholder="Ingrese ID de SAP" maxlength="40" valueLiveUpdate="true" change="onAttachmentSapIdChange" required="true" />
+
+                <Label text="ID de Empleado (máx. 4 caracteres)" />
+                <Input id="inputAttachmentEmployeeId" placeholder="Ingrese ID de Empleado" maxlength="4" valueLiveUpdate="true" change="onAttachmentEmployeeIdChange" required="true" />
+
+                <Label text="Nombre del Documento (máx. 80 caracteres)" />
+                <Input id="fileUploader" visible="false" placeholder="Ingrese Nombre del Documento" maxlength="80" valueLiveUpdate="true" change="onDocNameChange" required="true" />
+
+                <Label text="Tipo MIME (máx. 128 caracteres)" />
+                <Input id="inputMimeType" placeholder="Ingrese Tipo MIME" maxlength="128" valueLiveUpdate="true" change="onMimeTypeChange" required="true" />
+
+                <Label text="Subir Archivo" />
+                <u:FileUploader  
+                                id="inputDocName"
+                                uploadUrl="/sap/opu/odata/sap/ZEMPLOYEES_SRV/Attachments" 
+                                change="onFileChange" 
+                                uploadComplete="onUploadComplete" 
+                                fileType="pdf,doc,docx,png,jpg,txt" 
+                                maximumFileSize="20"
+                                required="true"
+                                placeholder="Seleccione un archivo a subir" 
+                                headerParameters="{     name: 'x-csrf-token',
+                                                        value: '{csrfToken}'  }" />
+
+                <Button text="Subir Archivos" press="onUploadFiles" />
+
+
+            </form:SimpleForm>
+
+            <!-- Botón para enviar los datos -->
+            <Button
+                text="Añadir Datos"
+                type="Emphasized"
+                press="onAddEntities"
+                class="sapUiSmallMarginTop" />
+        </content>
+    </Page>
+</mvc:View>

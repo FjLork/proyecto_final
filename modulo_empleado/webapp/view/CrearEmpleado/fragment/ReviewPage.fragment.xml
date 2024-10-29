@@ -1,76 +1,61 @@
-<core:FragmentDefinition    xmlns="sap.m"
-                            xmlns:core="sap.ui.core"
-                            xmlns:form="sap.ui.layout.form">
-    <!-- Contenedor Vertical -->
-						<form:SimpleForm
-								title="Tipo de empleado"
-								editable="false"
-								layout="ResponsiveGridLayout">
-							<form:content>
-								<Label text="Type"/>
-								<Text id="ProductTypeChosen" text="{/UserType}"/>
-								<Link press="editStepOne" text="Edit" />
-							</form:content>
-						</form:SimpleForm>
+<core:FragmentDefinition xmlns="sap.m"
+                         xmlns:core="sap.ui.core"
+                         xmlns:form="sap.ui.layout.form"
+                         xmlns:u="sap.ui.unified">
 
-						<form:SimpleForm
-								title="Datos empleado"
-								editable="false"
-								layout="ResponsiveGridLayout">
-							<form:content>
-								<Label text="Name"/>
-								<Text id="UserFirstNameChosen" text="{/UserFirstName}"/>
-								<Label text="Weight"/>
-								<Text id="UserLastNameChosen" text="{/UserLastName}"/>
-								<Label text="Manufacturer"/>
-        <Label 	text="CIF (2)" />
-        <Text text="{/UserCIF}"
-                id="UserCIFChosen"/>
+    <!-- Información del Empleado -->
+    <form:SimpleForm layout="ResponsiveGridLayout" title="Tipo de empleado">
+        
+        <Label text="ID de Empleado" />
+        <Text text="{users>/Users/EmployeeId}" />
 
-        <!-- Campo de DNI -->
-        <Label 	text="DNI (1,3)" />
-        <Text text="{/UserDni}"
-                id="UserDNIChosen"/>
+        <Label text="ID de SAP" />
+        <Text text="{users>/Users/SapId}" />
 
-        <!-- Campo de Salario Bruto anual -->
-        <Label text="Salario Bruto anual: (1,3)" />
-        <Text text="{/SalaryAmount1}"
-                id="SalaryAmount1Chosen"/>
+        <Label text="Tipo" />
+        <Text text="{users>/Users/TypeDescr}" />
 
-        <!-- Campo de Precio Diario -->
-        <Label text="Precio Diario: (1)" />
-        <Text text="{/SalaryAmount}"
-                id="SalaryAmount2Chosen"/>
+        <!-- Botón de edición -->
+        <Link press="editStepThree" text="Edit" />
+    </form:SimpleForm>
 
+    <!-- Información del Salario -->
+    <form:SimpleForm layout="ResponsiveGridLayout" title="Datos Empleado">
 
-        <!-- Campo de Fecha de Incorporación -->
-        <Label text="Fecha Incorporación  (1,2,3)" />
-        <DatePicker text="{/SalaryCreationDate}" />
+	  	<Label text="Nombre" />
+        <Text text="{users>/Users/FirstName}" />
 
+        <Label text="Apellido" />
+        <Text text="{users>/Users/LastName}" />
 
+        <Label text="{users>/Texto/DNI}" />
+        <Text text="{users>/Users/Dni}" />
 
-							</form:content>
-						</form:SimpleForm>
+        <Label text="{users>/Texto/Precio}" />
+        <Text text="{users>/Salaries/Amount}" />
 
-						<form:SimpleForm
-								title="Informacion adicional"
-								editable="false"
-								layout="ResponsiveGridLayout">
-							<form:content>
-								<Label text="Some text"/>
-								<Text text="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-								tempor incididunt ut labore et dolore magna aliqua. "/>
-								<Label text="Manufacturing Date"/>
-								<Text id="ManufacturingDate" text="{/manufacturingDate}"/>
-								<Label text="Availability"/>
-								<Text id="AvailabilityChosen" text="{/availabilityType}"/>
-								<Label text="Size"/>
-								<HBox>
-									<Text id="Size" text="{/size}"/>
-									<Text id="Size2" class="sapUiTinyMarginBegin" text="{/measurement}"/>
-								</HBox>
-								<Link press="editStepThree" text="Edit" />
-							</form:content>
-						</form:SimpleForm>
+        <Label text="Moneda" />
+        <Text text="{users>/Salaries/Waers}" />
+
+        <Label text="Fecha de Incorporacion" />
+        <Text text="{= ${users>/Users/CreationDate}.formatDate('yyyy-MM-dd') }"/>
+
+    </form:SimpleForm>
+
+	    <!-- Información del Adjunto -->
+    <form:SimpleForm layout="ResponsiveGridLayout" title="Informacion adicional">
+
+        <Label text="Comentarios" />
+        <Text text="{users>/Users/Comments}" />
+
+        <Label text="Nombre del Documento" />
+        <Text text="{users>/Attachments/DocName}" />
+
+        <Label text="Anexos" />
+        <Text text="{users>/Attachments/DocName}" />
+
+        <!-- Botón de edición -->
+        <Link press="editStepThree" text="Edit" />
+    </form:SimpleForm>
 
 </core:FragmentDefinition>

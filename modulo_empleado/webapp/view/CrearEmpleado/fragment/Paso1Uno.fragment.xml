@@ -1,27 +1,34 @@
 <core:FragmentDefinition xmlns="sap.m"
-                         xmlns:core="sap.ui.core">
+                         xmlns:core="sap.ui.core"
+                         xmlns:form="sap.ui.layout.form">
 
-								<MessageStrip 	class="sapUiSmallMarginBottom"
-                      							text="Seleccione el tipo de empleado para rellenar sus datos."
-												showIcon="true"/>
+    <MessageStrip class="sapUiSmallMarginBottom"
+                  text="Seleccione el tipo de empleado para rellenar sus datos."
+                  showIcon="true" />
 
-								<HBox	alignItems="Center"
-										justifyContent="Center"
-										width="100%">
+    <VBox>
+        <HBox alignItems="Center" justifyContent="Center" width="100%">
+            <SegmentedButton width="320px" selectionChange="setProductTypeFromSeg">
+                <items>
+                    <SegmentedButtonItem icon="sap-icon://idea-wall" text="Interno" />
+                    <SegmentedButtonItem icon="sap-icon://people-connected" text="Autonomo" />
+                    <SegmentedButtonItem icon="sap-icon://database" text="Gerente" />
+                </items>
+            </SegmentedButton>
+        </HBox>
 
-									<SegmentedButton	width="320px"
-														selectionChange="setProductTypeFromSegmented">
-										<items>
-											<SegmentedButtonItem        icon="sap-icon://idea-wall"       
-																		text="Interno"/>
+        <!-- Formulario con campos obligatorios -->
+        <form:SimpleForm editable="true" layout="ResponsiveGridLayout">
+            <!-- Información del Empleado -->
+            <Label text="ID de Empleado" />
+            <Input value="{users>/Users/EmployeeId}" editable="false" />
 
-											<SegmentedButtonItem        icon="sap-icon://people-connected"  
-																		text="Autonomo"/>
+            <Label text="ID de SAP" />
+            <Input value="{users>/Users/SapId}" editable="false" />
 
-											<SegmentedButtonItem        icon="sap-icon://database"     
-																		text="Gerente"/>
-										</items>
-									</SegmentedButton>
-								</HBox>
-
+            <Label text="Tipo" />
+            <Input value="{users>/Users/Type}" editable="false" />
+        </form:SimpleForm>
+    </VBox>
 </core:FragmentDefinition>
+
