@@ -41,9 +41,14 @@
                 <!-- Información del Salario -->
                 <Label text="ID del Salario" />
                 <Input value="{users>/Salaries/SalaryId}" editable="false" />
-
+<!--
+                <Slider min="{users>/Texto/PrecioMin}" max="{users>/Texto/PrecioMax}" value="{/employee/annualSalary}" step="{users>/Texto/PrecioStep}" width="100%"/>
                 <Label text="{users>/Texto/Precio}" />
                 <Input value="{users>/Salaries/Amount}" />
+
+-->
+                <Label text="{users>/Texto/Precio}" />
+                <Slider min="{users>/Texto/PrecioMin}" max="{users>/Texto/PrecioMax}" value="{/employee/annualSalary}" step="{users>/Texto/PrecioStep}" width="100%"/>
 
                 <Label text="Moneda" />
                 <Input value="{users>/Salaries/Waers}" editable="false" />

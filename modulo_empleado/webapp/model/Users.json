@@ -24,8 +24,9 @@
     "Texto": {
         "DNI": "DNI:",
         "Precio": "Salario Bruto anual",
-        "PrecioMin": "12000",
-        "PrecioMax": "80000",
+        "PrecioMin": 12000,
+        "PrecioMax": 80000,
+        "PrecioStep": 10,
         "MimeType": "application/pdf"
     }
 }

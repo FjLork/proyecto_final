@@ -24,27 +24,30 @@ sap.ui.define([
 			var sPrecio;
 			var sPrecioMin;
 			var sPrecioMax;
-
-
+			var sPrecioStep;
+		
 			// Asignar valores numéricos según el texto seleccionado
 			if (sSelectedType === "Interno") {
 				iTypeValue = 0;
 				sDni = "DNI";
 				sPrecio = "Salario Bruto anual";
-				sPrecioMin = "12000";
-				sPrecioMax = "80000";
+				sPrecioMin = 12000; // Convertido a número
+				sPrecioMax = 80000; // Convertido a número
+				sPrecioStep = (sPrecioMax - sPrecioMin) / 1000;
 			} else if (sSelectedType === "Autonomo") {
 				iTypeValue = 1;
 				sDni = "CIF";
 				sPrecio = "Precio Diario";
-				sPrecioMin = "100";
-				sPrecioMax = "2000";
+				sPrecioMin = 100; // Convertido a número
+				sPrecioMax = 2000; // Convertido a número
+				sPrecioStep = (sPrecioMax - sPrecioMin) / 1000;
 			} else if (sSelectedType === "Gerente") {
 				iTypeValue = 2;
 				sDni = "DNI";
 				sPrecio = "Salario Bruto anual";
-				sPrecioMin = "12000";
-				sPrecioMax = "80000";
+				sPrecioMin = 12000; // Convertido a número
+				sPrecioMax = 80000; // Convertido a número
+				sPrecioStep = (sPrecioMax - sPrecioMin) / 1000;
 			}
 		
 			// Actualizar el valor en el modelo "users"
@@ -53,12 +56,13 @@ sap.ui.define([
 			// Asegúrate de que las rutas del modelo sean correctas y estén actualizadas
 			oModel.setProperty("/Users/Type", iTypeValue);
 			oModel.setProperty("/Users/TypeDescr", sSelectedType);
-			oModel.setProperty("/Texto/DNI", sDni); 			
-			oModel.setProperty("/Texto/Precio", sPrecio );
-			oModel.setProperty("/Texto/PrecioMin", sPrecioMin );
-			oModel.setProperty("/Texto/PrecioMax", sPrecioMax );
-
+			oModel.setProperty("/Texto/DNI", sDni);            
+			oModel.setProperty("/Texto/Precio", sPrecio);
+			oModel.setProperty("/Texto/PrecioMin", sPrecioMin);
+			oModel.setProperty("/Texto/PrecioMax", sPrecioMax);
+			oModel.setProperty("/Texto/PrecioStep", sPrecioStep);
 		},
+		
 		
 
 		setProductType: function (evt) {
