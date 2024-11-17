@@ -12,7 +12,7 @@
     },
     "Salaries": {
         "SalaryId": "0001",
-        "Amount": 50000,
+        "Amount": 0,
         "Waers": "EUR"
     },
     "Attachments": {

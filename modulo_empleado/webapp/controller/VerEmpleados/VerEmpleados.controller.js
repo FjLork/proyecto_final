@@ -58,8 +58,8 @@ sap.ui.define([
 
             if (oContext) {
                 // Limpiar los modelos correspondientes a idTable1Fich y idTable2Hist antes de buscar los datos
-                this.byId("idTable1Fich").setModel(new JSONModel({}));
-                this.byId("idTable2Hist").setModel(new JSONModel({}));
+                // this.byId("idTable1Fich").setModel(new JSONModel({}));
+                // this.byId("idTable2Hist").setModel(new JSONModel({}));
 
                 var sEmployeeId = oContext.getProperty("EmployeeId");
 
@@ -73,21 +73,14 @@ sap.ui.define([
                 };
 
                 var oDetailPageModel = new JSONModel(oData);
-                var oListaEmplPag1F = this.byId("ListaEmplPag1F");
-                var oListaEmplPag2H = this.byId("ListaEmplPag2H");
+                var oListaEmplPag1 = this.byId("ListaEmplPag1");
 
-                if (oListaEmplPag1F) {
-                    oListaEmplPag1F.setModel(oDetailPageModel);
-                }
-
-                if (oListaEmplPag2H) {
-                    oListaEmplPag2H.setModel(oDetailPageModel);
-                }
+                    oListaEmplPag1.setModel(oDetailPageModel);
 
                 this.getEmplAttach1F(this, sEmployeeId);
                 this.getEmplSalari2H(this, sEmployeeId);
 
-                this.onNavigateToListaEmplPag1F();
+                this.onNavigateToListaEmplPag1();
             }
         },
 
@@ -114,6 +107,11 @@ sap.ui.define([
         // Función para navegar a la página de información detallada del empleado (ListaEmplPag1F)
         onNavigateToListaEmplPag1F: function () {
             this.byId("detailNavContainer").to(this.byId("ListaEmplPag1F"));
+        },
+
+        // Función para navegar a la página de información detallada del empleado (ListaEmplPag1)
+        onNavigateToListaEmplPag1: function () {
+            this.byId("detailNavContainer").to(this.byId("ListaEmplPag1"));
         },
 
         // Función para navegar a la página de información detallada del empleado (ListaEmplPag2H)

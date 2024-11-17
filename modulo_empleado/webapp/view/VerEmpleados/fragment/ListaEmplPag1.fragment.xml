@@ -1,0 +1,76 @@
+<core:FragmentDefinition    xmlns="sap.m"
+                            xmlns:core="sap.ui.core">
+    <VBox>
+        <!-- Panel de Detalle Empleado -->
+        <Panel headerText="Detalle Empleado" class="customPanel">
+            <content>
+                <!-- Cabecera del empleado con fondo azul claro -->
+                <FlexBox class="customPanel blueBackground">
+                    <items>
+                        <!-- Icono de usuario -->
+                        <VBox>
+                            <core:Icon src="sap-icon://employee" size="4rem" class="sapUiLargeMarginBeginEnd" />
+                        </VBox>
+
+                        <!-- Información básica del empleado -->
+                        <VBox>
+                            <Text text="{/FirstName} {/LastName}" 
+                                class="sapUiTinyMarginTopBottom customTextLargeBold" />
+                            <Text text="DNI: {/Dni}" 
+                                class="sapUiTinyMarginTopBottom"/>
+                            <Text text="Id Empleado: {/EmployeeId}" 
+                                class="sapUiTinyMarginTopBottom"/>
+                        </VBox>
+                    </items>
+                </FlexBox>
+
+                <FlexBox alignItems="Center">
+                    <VBox>
+                        <Text text="Fecha Incorporación: {path: '/CreationDate', formatter: '.formatDate'}" 
+                            class="sapUiTinyMarginTopBottom"/>
+                        <Text text="Tipo: Autónomo" 
+                            class="sapUiTinyMarginTopBottom"/>
+                    </VBox>
+                </FlexBox>
+
+                <!-- Control IconTabBar para los botones de Ficheros y Historial -->
+                <IconTabBar>
+                    <items>
+                        <!-- Botón de Ficheros -->
+                        <IconTabFilter
+                            key="Ficheros"
+                            text="Ficheros"
+                            icon="sap-icon://attachment"
+                            selected="true">
+                            <!-- Contenido que se muestra cuando se selecciona "Ficheros" -->
+                            <VBox>
+                                <Text text="Anexos (1)" />
+                                <Link text="Proyectos.txt" />
+
+                                <core:Fragment fragmentName="lorkgroup.moduloempleado.view.VerEmpleados.fragment.ListEmplPos1Fich" type="XML" />
+
+                            </VBox>
+                        </IconTabFilter>
+
+                        <!-- Botón de Historial -->
+                        <IconTabFilter
+                            key="Historial"
+                            text="Historial"
+                            icon="sap-icon://money-bills">
+                            <!-- Contenido que se muestra cuando se selecciona "Historial" -->
+                            <VBox>
+                                <core:Fragment fragmentName="lorkgroup.moduloempleado.view.VerEmpleados.fragment.ListEmplPos2Hist" type="XML" />
+                            </VBox>
+                        </IconTabFilter>
+                    </items>
+                </IconTabBar>
+            </content>
+        </Panel>
+
+        <!-- Barra de herramientas -->
+        <Toolbar>
+            <ToolbarSpacer />
+            <Button text="Regresar" press="onNavigateToDetail" />
+        </Toolbar>
+    </VBox>
+</core:FragmentDefinition>
