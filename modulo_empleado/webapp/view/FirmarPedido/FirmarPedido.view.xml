@@ -1,7 +1,10 @@
-<mvc:View
-    controllerName="lorkgroup.moduloempleado.controller.FirmarPedido.FirmarPedido"
-    xmlns:mvc="sap.ui.core.mvc"
-    xmlns="sap.m">
+<mvc:View   controllerName="lorkgroup.moduloempleado.controller.FirmarPedido.FirmarPedido"
+            xmlns="sap.m"
+            xmlns:l="sap.ui.layout"
+            xmlns:f="sap.ui.layout.form"
+            xmlns:mvc="sap.ui.core.mvc"
+            xmlns:signature="lorkgroup.control">
+
     <Page title="Firmar Pedido">
         <headerContent>
             <!-- Botón para Volver al Menú Principal -->
@@ -9,6 +12,22 @@
         </headerContent>
         <content>
             <Text text="Vista para Firmar Pedido."/>
+
+                <Panel headerText="i18n>customerID">
+                        
+                        <l:Grid defaultSpan="L6 M6 S12">
+
+                                <FlexBox class="sapUiSmallMarginTop">
+                                        <signature:Signature id="signature"/>
+                                        <Button text="i18n>clear"
+                                                press="onClearSignature"
+                                                class="sapUiSmallMarginBegin"/>
+                                </FlexBox>
+
+                        </l:Grid>
+
+
+                </Panel>
         </content>
     </Page>
 </mvc:View>

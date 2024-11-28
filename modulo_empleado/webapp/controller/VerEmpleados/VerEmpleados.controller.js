@@ -51,39 +51,6 @@ sap.ui.define([
             }
         },
 
-        // Función para manejar la selección de un usuario
-        onUserSelect: function (oEvent) {
-            var oSelectedItem = oEvent.getParameter("listItem");
-            var oContext = oSelectedItem.getBindingContext("erp13");
-
-            if (oContext) {
-                // Limpiar los modelos correspondientes a idTable1Fich y idTable2Hist antes de buscar los datos
-                // this.byId("idTable1Fich").setModel(new JSONModel({}));
-                // this.byId("idTable2Hist").setModel(new JSONModel({}));
-
-                var sEmployeeId = oContext.getProperty("EmployeeId");
-
-                // Crear el modelo con la información del empleado seleccionado
-                var oData = {
-                    EmployeeId: sEmployeeId,
-                    FirstName: oContext.getProperty("FirstName"),
-                    LastName: oContext.getProperty("LastName"),
-                    Dni: oContext.getProperty("Dni"),
-                    CreationDate: oContext.getProperty("CreationDate")
-                };
-
-                var oDetailPageModel = new JSONModel(oData);
-                var oListaEmplPag1 = this.byId("ListaEmplPag1");
-
-                    oListaEmplPag1.setModel(oDetailPageModel);
-
-                this.getEmplAttach1F(this, sEmployeeId);
-                this.getEmplSalari2H(this, sEmployeeId);
-
-                this.onNavigateToListaEmplPag1();
-            }
-        },
-
         // Función para navegar de vuelta a la primera página
         onNavigateToDetail: function () {
             this.byId("detailNavContainer").back();
@@ -119,20 +86,51 @@ sap.ui.define([
             this.byId("detailNavContainer").to(this.byId("ListaEmplPag2H"));
         },
 
+        // Función para manejar la selección de un usuario
+        onUserSelect: function (oEvent) {
+            var oSelectedItem = oEvent.getParameter("listItem");
+            var oContext = oSelectedItem.getBindingContext("erp13");
+
+            if (oContext) {
+                // Limpiar los modelos correspondientes a idTable1Fich y idTable2Hist antes de buscar los datos
+                this.clearTableModels();
+
+                var sEmployeeId = oContext.getProperty("EmployeeId");
+
+                // Crear el modelo con la información del empleado seleccionado
+                var oData = {
+                    EmployeeId: sEmployeeId,
+                    FirstName: oContext.getProperty("FirstName"),
+                    LastName: oContext.getProperty("LastName"),
+                    Dni: oContext.getProperty("Dni"),
+                    CreationDate: oContext.getProperty("CreationDate")
+                };
+
+                var oDetailPageModel = new JSONModel(oData);
+                var oListaEmplPag1 = this.byId("ListaEmplPag1");
+
+                oListaEmplPag1.setModel(oDetailPageModel);
+
+                this.getEmplAttach1F(this, sEmployeeId);
+                this.getEmplSalari2H(this, sEmployeeId);
+
+                this.onNavigateToListaEmplPag1();
+            }
+        },
+
+        // Función para limpiar los modelos de las tablas
+        clearTableModels: function () {
+            this.byId("idTable1Fich").setModel(new JSONModel({}));
+            this.byId("idTable2Hist").setModel(new JSONModel({}));
+        },
+
         // Función para obtener los adjuntos del empleado (para ListaEmplPag2H)
         getEmplAttach1F: function (oController, sEmployeeId) {
-
             var oModel = oController.getView().getModel("erp13");
             var sPath = "/Attachments";
             var aFilters = [
                 new Filter("EmployeeId", FilterOperator.EQ, sEmployeeId)
             ];
-
-    // Función para limpiar la tabla de adjuntos
-    function clearTable() {
-        oController.byId("idTable1Fich").setModel(new JSONModel({}));
-    }
-
 
             oModel.read(sPath, {
                 filters: aFilters,
@@ -156,17 +154,11 @@ sap.ui.define([
         },
 
         getEmplSalari2H: function (oController, sEmployeeId) {
-
             var oModel = oController.getView().getModel("erp13");
             var sPath = "/Salaries";
             var aFilters = [
                 new Filter("EmployeeId", FilterOperator.EQ, sEmployeeId)
             ];
-
-    // Función para limpiar la tabla de adjuntos
-    function clearTable() {
-        oController.byId("idTable2Hist").setModel(new JSONModel({}));
-    }
 
             oModel.read(sPath, {
                 filters: aFilters,
